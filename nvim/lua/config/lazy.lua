@@ -26,6 +26,15 @@ require("lazy").setup({
       require("plugins.lsp")
     end,
   },
+  {
+    name = "wisteria.nvim",
+    dir = "@wisteria@",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("plugins.wisteria")
+    end,
+  },
 }, {
   install = { missing = false },
   checker = { enabled = false },

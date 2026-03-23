@@ -22,7 +22,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 vim.opt.number = true
-vim.opt.relativeNumber = true
+vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.opt.termguicolors = true

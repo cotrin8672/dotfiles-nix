@@ -13,9 +13,12 @@
     llm-agents.url = "github:numtide/llm-agents.nix";
   };
 
-  outputs = {self, nixpkgs, nixos-wsl, home-manager, llm-agents, ...}:
+  outputs = {nixpkgs, nixos-wsl, home-manager, llm-agents, ...} :
   let
     system = "x86_64-linux";
+    overlays = [
+      (import ./overlays/nvim-plugins.nix)
+    ];
   in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system;
@@ -25,6 +28,8 @@
         ./configuration.nix
 
         {
+	  nixpkgs.overlays = overlays;
+
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
 
