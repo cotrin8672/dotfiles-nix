@@ -6,8 +6,8 @@ final: prev: {
       src = prev.fetchFromGitHub {
         owner = "masisz";
         repo = "wisteria.nvim";
-        rev = "main";
-        hash = "sha256-9d2ff53f31b8a17de82531ea2376e258ad500f4d=";
+        rev = "9d2ff53f31b8a17de82531ea2376e258ad500f4d";
+        hash = "sha256-BfsQuGPRBBqn/GNF7c51ntCHefLtRDywKRT7h3pvkwo=";
       };
     };
   };
