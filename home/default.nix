@@ -1,6 +1,10 @@
 { config, pkgs, llm-agents, ... }:
 
 {
+  imports = [
+    ./neovim.nix
+  ];
+
   home.username = "cotrin";
   home.homeDirectory = "/home/cotrin";
 

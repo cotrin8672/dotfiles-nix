@@ -32,7 +32,7 @@
             inherit llm-agents;
           };
 
-          home-manager.users.cotrin = import ./home.nix;
+          home-manager.users.cotrin = import ./home/default.nix;
         }
       ];
     };
