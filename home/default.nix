@@ -21,9 +21,16 @@
     chezmoi
     git
     gh
-    neovim
     nushell
     codex
     claude-code
+    ripgrep
+    fd
+    fzf
+    bat
+    eza
+    zoxide
+    dust
+    ghq
   ];
 }

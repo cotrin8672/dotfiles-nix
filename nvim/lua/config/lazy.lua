@@ -18,6 +18,14 @@ require("lazy").setup({
       require("plugins.blink")
     end,
   },
+  {
+    name = "nvim-lspconfig",
+    dir = "@lspconfig@",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("plugins.lsp")
+    end,
+  },
 }, {
   install = { missing = false },
   checker = { enabled = false },
