@@ -17,7 +17,7 @@
 
   programs.home-manager.enable = true;
 
-  home.packages = with (pkgs // llm-agents.packages.${pkgs.system}); [
+  home.packages = with (pkgs // llm-agents.packages.${pkgs.stdenv.hostPlatform.system}); [
     chezmoi
     git
     gh

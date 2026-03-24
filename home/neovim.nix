@@ -13,6 +13,7 @@ let
     hlchunk = pkgs.vimPlugins."hlchunk-nvim";
     hlslens = pkgs.vimPlugins."nvim-hlslens";
     lspconfig = pkgs.vimPlugins.nvim-lspconfig;
+    lspsaga = pkgs.vimPlugins."lspsaga-nvim";
     lualine = pkgs.vimPlugins."lualine-nvim";
     mini_icons = pkgs.vimPlugins."mini-icons";
     mini_nvim = pkgs.vimPlugins."mini-nvim";
@@ -21,8 +22,11 @@ let
     nui = pkgs.vimPlugins."nui-nvim";
     nvim_autopairs = pkgs.vimPlugins."nvim-autopairs";
     nvim_notify = pkgs.vimPlugins."nvim-notify";
+    nvim_web_devicons = pkgs.vimPlugins."nvim-web-devicons";
     rainbow_delimiters = pkgs.vimPlugins."rainbow-delimiters-nvim";
     smear_cursor = pkgs.vimPlugins."smear-cursor-nvim";
+    tiny_inline_diagnostic = pkgs.vimPlugins."tiny-inline-diagnostic-nvim";
+    trouble = pkgs.vimPlugins."trouble-nvim";
     treesj = pkgs.vimPlugins.treesj;
     treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins ( plugins: with plugins; [
       bash
@@ -57,6 +61,7 @@ let
       hlchunk = "${plugins.hlchunk}";
       hlslens = "${plugins.hlslens}";
       lspconfig = "${plugins.lspconfig}";
+      lspsaga = "${plugins.lspsaga}";
       lualine = "${plugins.lualine}";
       mini_icons = "${plugins.mini_icons}";
       mini_nvim = "${plugins.mini_nvim}";
@@ -65,6 +70,9 @@ let
       nui = "${plugins.nui}";
       nvim_autopairs = "${plugins.nvim_autopairs}";
       nvim_notify = "${plugins.nvim_notify}";
+      nvim_web_devicons = "${plugins.nvim_web_devicons}";
+      tiny_inline_diagnostic = "${plugins.tiny_inline_diagnostic}";
+      trouble = "${plugins.trouble}";
       treesj = "${plugins.treesj}";
       treesitter = "${plugins.treesitter}";
       treesitter_parsers = map toString (plugins.treesitter.dependencies or []);
@@ -105,6 +113,7 @@ in
     xdg.configFile."nvim/lua/plugins/hlchunk.lua".source = ../nvim/lua/plugins/hlchunk.lua;
     xdg.configFile."nvim/lua/plugins/hlslens.lua".source = ../nvim/lua/plugins/hlslens.lua;
     xdg.configFile."nvim/lua/plugins/lsp.lua".source = ../nvim/lua/plugins/lsp.lua;
+    xdg.configFile."nvim/lua/plugins/lspsaga.lua".source = ../nvim/lua/plugins/lspsaga.lua;
     xdg.configFile."nvim/lua/plugins/lualine.lua".source = ../nvim/lua/plugins/lualine.lua;
     xdg.configFile."nvim/lua/plugins/mini-animate.lua".source = ../nvim/lua/plugins/mini-animate.lua;
     xdg.configFile."nvim/lua/plugins/mini-icons.lua".source = ../nvim/lua/plugins/mini-icons.lua;
@@ -114,6 +123,8 @@ in
     xdg.configFile."nvim/lua/plugins/nvim-autopairs.lua".source = ../nvim/lua/plugins/nvim-autopairs.lua;
     xdg.configFile."nvim/lua/plugins/rainbow-delimiters.lua".source = ../nvim/lua/plugins/rainbow-delimiters.lua;
     xdg.configFile."nvim/lua/plugins/smear-cursor.lua".source = ../nvim/lua/plugins/smear-cursor.lua;
+    xdg.configFile."nvim/lua/plugins/tiny-inline-diagnostic.lua".source = ../nvim/lua/plugins/tiny-inline-diagnostic.lua;
+    xdg.configFile."nvim/lua/plugins/trouble.lua".source = ../nvim/lua/plugins/trouble.lua;
     xdg.configFile."nvim/lua/plugins/treesj.lua".source = ../nvim/lua/plugins/treesj.lua;
     xdg.configFile."nvim/lua/plugins/treesitter.lua".source = ../nvim/lua/plugins/treesitter.lua;
     xdg.configFile."nvim/lua/plugins/everforest.lua".source = ../nvim/lua/plugins/everforest.lua;
