@@ -3,8 +3,15 @@
 let
   plugins = {
     lazy_nvim = pkgs.vimPlugins."lazy-nvim";
+    barbar = pkgs.vimPlugins."barbar-nvim";
     blink_cmp = pkgs.vimPlugins."blink-cmp";
+    guess_indent = pkgs.vimPlugins."guess-indent-nvim";
+    gitsigns = pkgs.vimPlugins."gitsigns-nvim";
     lspconfig = pkgs.vimPlugins.nvim-lspconfig;
+    lualine = pkgs.vimPlugins."lualine-nvim";
+    mini_icons = pkgs.vimPlugins."mini-icons";
+    mini_nvim = pkgs.vimPlugins."mini-nvim";
+    nvim_autopairs = pkgs.vimPlugins."nvim-autopairs";
     wisteria = pkgs.vimPlugins.wisteria-nvim;
     treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins ( plugins: with plugins; [
       bash
@@ -26,9 +33,22 @@ let
     ]);
   };
 
-  lazyLua = pkgs.replaceVars ../nvim/lua/config/lazy.lua {
-    inherit (plugins) lazy_nvim blink_cmp treesitter lspconfig wisteria;
-  };
+  nixPathsLua = pkgs.writeText "nix_paths.lua" ''
+    return ${builtins.toJSON {
+      lazy_nvim = "${plugins.lazy_nvim}";
+      barbar = "${plugins.barbar}";
+      blink_cmp = "${plugins.blink_cmp}";
+      guess_indent = "${plugins.guess_indent}";
+      gitsigns = "${plugins.gitsigns}";
+      lspconfig = "${plugins.lspconfig}";
+      lualine = "${plugins.lualine}";
+      mini_icons = "${plugins.mini_icons}";
+      mini_nvim = "${plugins.mini_nvim}";
+      nvim_autopairs = "${plugins.nvim_autopairs}";
+      treesitter = "${plugins.treesitter}";
+      wisteria = "${plugins.wisteria}";
+    }}
+  '';
 in
   {
     programs.neovim = {
@@ -50,10 +70,21 @@ in
     };
 
     xdg.configFile."nvim/init.lua".source = ../nvim/init.lua;
-    xdg.configFile."nvim/lua/plugins/treesitter.lua".source = ../nvim/lua/plugins/treesitter.lua;
-    xdg.configFile."nvim/lua/plugins/blink.lua".source = ../nvim/lua/plugins/blink.lua;
-    xdg.configFile."nvim/lua/plugins/lsp.lua".source = ../nvim/lua/plugins/lsp.lua;
-    xdg.configFile."nvim/lua/plugins/wisteria.lua".source = ../nvim/lua/plugins/wisteria.lua;
-    xdg.configFile."nvim/lua/config/lazy.lua".source = lazyLua;
-  }
 
+    xdg.configFile."nvim/lua/plugins/barbar.lua".source = ../nvim/lua/plugins/barbar.lua;
+    xdg.configFile."nvim/lua/plugins/blink.lua".source = ../nvim/lua/plugins/blink.lua;
+    xdg.configFile."nvim/lua/plugins/gitsigns.lua".source = ../nvim/lua/plugins/gitsigns.lua;
+    xdg.configFile."nvim/lua/plugins/guess-indent.lua".source = ../nvim/lua/plugins/guess-indent.lua;
+    xdg.configFile."nvim/lua/plugins/lsp.lua".source = ../nvim/lua/plugins/lsp.lua;
+    xdg.configFile."nvim/lua/plugins/lualine.lua".source = ../nvim/lua/plugins/lualine.lua;
+    xdg.configFile."nvim/lua/plugins/mini-icons.lua".source = ../nvim/lua/plugins/mini-icons.lua;
+    xdg.configFile."nvim/lua/plugins/mini-pick.lua".source = ../nvim/lua/plugins/mini-pick.lua;
+    xdg.configFile."nvim/lua/plugins/nvim-autopairs.lua".source = ../nvim/lua/plugins/nvim-autopairs.lua;
+    xdg.configFile."nvim/lua/plugins/treesitter.lua".source = ../nvim/lua/plugins/treesitter.lua;
+    xdg.configFile."nvim/lua/plugins/wisteria.lua".source = ../nvim/lua/plugins/wisteria.lua;
+
+    xdg.configFile."nvim/lua/shared/diagnostic_icons.lua".source = ../nvim/lua/shared/diagnostic_icons.lua;
+    xdg.configFile."nvim/lua/ui/diagnostic_icons.lua".source = ../nvim/lua/ui/diagnostic_icons.lua;
+
+    home.file.".config/nvim/lua/nix_paths.lua".source = nixPathsLua;
+  }

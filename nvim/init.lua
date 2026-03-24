@@ -44,5 +44,13 @@ vim.keymap.set('n', '<M-l>', '<C-w>l', { noremap = true, silent = true })
 --   end,
 -- })
 
-require("config.lazy")
+local nix = require("nix_paths")
+
+vim.opt.rtp:prepend(nix.lazy_nvim)
+
+require("lazy").setup("plugins", {
+  install = { missing = false },
+  checker = { enabled = false },
+  change_detection = { enabled = false },
+})
 
