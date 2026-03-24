@@ -21,8 +21,8 @@ let
     nui = pkgs.vimPlugins."nui-nvim";
     nvim_autopairs = pkgs.vimPlugins."nvim-autopairs";
     nvim_notify = pkgs.vimPlugins."nvim-notify";
-    neoscroll = pkgs.vimPlugins."neoscroll-nvim";
     rainbow_delimiters = pkgs.vimPlugins."rainbow-delimiters-nvim";
+    smear_cursor = pkgs.vimPlugins."smear-cursor-nvim";
     treesj = pkgs.vimPlugins.treesj;
     treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins ( plugins: with plugins; [
       bash
@@ -61,7 +61,6 @@ let
       mini_icons = "${plugins.mini_icons}";
       mini_nvim = "${plugins.mini_nvim}";
       neodim = "${plugins.neodim}";
-      neoscroll = "${plugins.neoscroll}";
       noice = "${plugins.noice}";
       nui = "${plugins.nui}";
       nvim_autopairs = "${plugins.nvim_autopairs}";
@@ -69,6 +68,7 @@ let
       treesj = "${plugins.treesj}";
       treesitter = "${plugins.treesitter}";
       rainbow_delimiters = "${plugins.rainbow_delimiters}";
+      smear_cursor = "${plugins.smear_cursor}";
       vim_edgemotion = "${pkgs.vimPlugins.vim-edgemotion}";
     }
   );
@@ -105,13 +105,14 @@ in
     xdg.configFile."nvim/lua/plugins/hlslens.lua".source = ../nvim/lua/plugins/hlslens.lua;
     xdg.configFile."nvim/lua/plugins/lsp.lua".source = ../nvim/lua/plugins/lsp.lua;
     xdg.configFile."nvim/lua/plugins/lualine.lua".source = ../nvim/lua/plugins/lualine.lua;
+    xdg.configFile."nvim/lua/plugins/mini-animate.lua".source = ../nvim/lua/plugins/mini-animate.lua;
     xdg.configFile."nvim/lua/plugins/mini-icons.lua".source = ../nvim/lua/plugins/mini-icons.lua;
     xdg.configFile."nvim/lua/plugins/mini-pick.lua".source = ../nvim/lua/plugins/mini-pick.lua;
     xdg.configFile."nvim/lua/plugins/neodim.lua".source = ../nvim/lua/plugins/neodim.lua;
-    xdg.configFile."nvim/lua/plugins/neoscroll.lua".source = ../nvim/lua/plugins/neoscroll.lua;
     xdg.configFile."nvim/lua/plugins/noice.lua".source = ../nvim/lua/plugins/noice.lua;
     xdg.configFile."nvim/lua/plugins/nvim-autopairs.lua".source = ../nvim/lua/plugins/nvim-autopairs.lua;
     xdg.configFile."nvim/lua/plugins/rainbow-delimiters.lua".source = ../nvim/lua/plugins/rainbow-delimiters.lua;
+    xdg.configFile."nvim/lua/plugins/smear-cursor.lua".source = ../nvim/lua/plugins/smear-cursor.lua;
     xdg.configFile."nvim/lua/plugins/treesj.lua".source = ../nvim/lua/plugins/treesj.lua;
     xdg.configFile."nvim/lua/plugins/treesitter.lua".source = ../nvim/lua/plugins/treesitter.lua;
     xdg.configFile."nvim/lua/plugins/everforest.lua".source = ../nvim/lua/plugins/everforest.lua;
