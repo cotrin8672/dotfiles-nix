@@ -1,10 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 let
   plugins = {
     lazy_nvim = pkgs.vimPlugins."lazy-nvim";
     barbar = pkgs.vimPlugins."barbar-nvim";
     blink_cmp = pkgs.vimPlugins."blink-cmp";
+    everforest = pkgs.vimPlugins.everforest;
     guess_indent = pkgs.vimPlugins."guess-indent-nvim";
     gitsigns = pkgs.vimPlugins."gitsigns-nvim";
     lspconfig = pkgs.vimPlugins.nvim-lspconfig;
@@ -12,7 +13,6 @@ let
     mini_icons = pkgs.vimPlugins."mini-icons";
     mini_nvim = pkgs.vimPlugins."mini-nvim";
     nvim_autopairs = pkgs.vimPlugins."nvim-autopairs";
-    wisteria = pkgs.vimPlugins.wisteria-nvim;
     treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins ( plugins: with plugins; [
       bash
       zsh
@@ -33,11 +33,12 @@ let
     ]);
   };
 
-  nixPathsLua = pkgs.writeText "nix_paths.lua" ''
-    return ${builtins.toJSON {
+  nixPathsLua = pkgs.writeText "nix_paths.lua" (
+    "return " + lib.generators.toLua {} {
       lazy_nvim = "${plugins.lazy_nvim}";
       barbar = "${plugins.barbar}";
       blink_cmp = "${plugins.blink_cmp}";
+      everforest = "${plugins.everforest}";
       guess_indent = "${plugins.guess_indent}";
       gitsigns = "${plugins.gitsigns}";
       lspconfig = "${plugins.lspconfig}";
@@ -46,9 +47,8 @@ let
       mini_nvim = "${plugins.mini_nvim}";
       nvim_autopairs = "${plugins.nvim_autopairs}";
       treesitter = "${plugins.treesitter}";
-      wisteria = "${plugins.wisteria}";
-    }}
-  '';
+    }
+  );
 in
   {
     programs.neovim = {
@@ -81,7 +81,7 @@ in
     xdg.configFile."nvim/lua/plugins/mini-pick.lua".source = ../nvim/lua/plugins/mini-pick.lua;
     xdg.configFile."nvim/lua/plugins/nvim-autopairs.lua".source = ../nvim/lua/plugins/nvim-autopairs.lua;
     xdg.configFile."nvim/lua/plugins/treesitter.lua".source = ../nvim/lua/plugins/treesitter.lua;
-    xdg.configFile."nvim/lua/plugins/wisteria.lua".source = ../nvim/lua/plugins/wisteria.lua;
+    xdg.configFile."nvim/lua/plugins/everforest.lua".source = ../nvim/lua/plugins/everforest.lua;
 
     xdg.configFile."nvim/lua/shared/diagnostic_icons.lua".source = ../nvim/lua/shared/diagnostic_icons.lua;
     xdg.configFile."nvim/lua/ui/diagnostic_icons.lua".source = ../nvim/lua/ui/diagnostic_icons.lua;

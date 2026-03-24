@@ -58,7 +58,7 @@ return {
 
     require("lualine").setup({
       options = {
-        theme = "wisteria",
+        theme = "everforest",
         component_separators = "",
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
