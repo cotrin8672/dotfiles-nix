@@ -5,7 +5,7 @@ return {
   dir = nix.barbar,
   event = "VeryLazy",
   dependencies = {
-    "nvim-web-devicons",
+    "mini.icons",
     "gitsigns.nvim",
   },
   init = function()
@@ -33,6 +33,9 @@ return {
   },
   config = function(_, opts)
     require("barbar").setup(opts)
+    local barbar_icons = require("barbar.icons")
+    local barbar_hl = require("barbar.utils.highlight")
+    local barbar_render = require("barbar.ui.render")
 
     local function get_hl(name)
       local ok, hl = pcall(vim.api.nvim_get_hl, 0, { name = name, link = false })
@@ -141,6 +144,12 @@ return {
           bg = line_bg,
         })
       end
+
+      barbar_hl.reset_cache()
+      barbar_icons.set_highlights()
+      vim.schedule(function()
+        barbar_render.update()
+      end)
     end
 
     apply_barbar_colors()

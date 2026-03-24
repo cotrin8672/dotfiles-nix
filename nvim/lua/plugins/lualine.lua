@@ -5,7 +5,7 @@ return {
   dir = nix.lualine,
   event = "VeryLazy",
   dependencies = {
-    "nvim-web-devicons",
+    "mini.icons",
   },
   config = function()
     local ok_sm, sm = pcall(require, "nvim-submode")
