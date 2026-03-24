@@ -67,6 +67,7 @@ let
       nvim_notify = "${plugins.nvim_notify}";
       treesj = "${plugins.treesj}";
       treesitter = "${plugins.treesitter}";
+      treesitter_parsers = map toString (plugins.treesitter.dependencies or []);
       rainbow_delimiters = "${plugins.rainbow_delimiters}";
       smear_cursor = "${plugins.smear_cursor}";
       vim_edgemotion = "${pkgs.vimPlugins.vim-edgemotion}";
