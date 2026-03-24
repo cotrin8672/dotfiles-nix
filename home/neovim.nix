@@ -139,6 +139,7 @@ in
     xdg.configFile."nvim/lua/plugins/lualine.lua".source = ../nvim/lua/plugins/lualine.lua;
     xdg.configFile."nvim/lua/plugins/mini-animate.lua".source = ../nvim/lua/plugins/mini-animate.lua;
     xdg.configFile."nvim/lua/plugins/mini-icons.lua".source = ../nvim/lua/plugins/mini-icons.lua;
+    xdg.configFile."nvim/lua/plugins/mini-map.lua".source = ../nvim/lua/plugins/mini-map.lua;
     xdg.configFile."nvim/lua/plugins/mini-pick.lua".source = ../nvim/lua/plugins/mini-pick.lua;
     xdg.configFile."nvim/lua/plugins/neodim.lua".source = ../nvim/lua/plugins/neodim.lua;
     xdg.configFile."nvim/lua/plugins/noice.lua".source = ../nvim/lua/plugins/noice.lua;
