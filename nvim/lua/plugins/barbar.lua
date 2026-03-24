@@ -5,14 +5,14 @@ return {
   dir = nix.barbar,
   event = "VeryLazy",
   dependencies = {
-    "mini.icons",
+    "nvim-web-devicons",
     "gitsigns.nvim",
   },
   init = function()
     vim.g.barbar_auto_setup = false
   end,
   opts = {
-    animation = false,
+    animation = true,
     auto_hide = false,
     clickable = true,
     focus_on_close = "left",
@@ -20,13 +20,16 @@ return {
     highlight_inactive_file_icons = false,
     icons = {
       button = "",
-      separator = { left = "", right = "" },
+      filetype = {
+        custom_colors = false,
+      },
+      separator = { left = "┃", right = "" },
       inactive = {
-        separator = { left = "", right = "" },
+        separator = { left = "┃", right = "" },
       },
     },
-    maximum_padding = 0,
-    minimum_padding = 0,
+    maximum_padding = 2,
+    minimum_padding = 2,
   },
   config = function(_, opts)
     require("barbar").setup(opts)
@@ -46,8 +49,9 @@ return {
       local tabline_sel = get_hl("TabLineSel")
 
       local line_bg = tabline.bg or normal.bg
-      local active_fg = tabline_sel.fg or normal.fg
+      local active_fg = normal.fg or tabline.fg
       local inactive_fg = comment.fg or tabline.fg or normal.fg
+      local separator_fg = tabline.fg or comment.fg or normal.fg
 
       local function set(group, spec)
         local hl = get_hl(group)
@@ -106,6 +110,20 @@ return {
       }) do
         set(group, {
           fg = active_fg,
+          bg = line_bg,
+          bold = false,
+          italic = false,
+        })
+      end
+
+      for _, group in ipairs({
+        "BufferCurrentSeparator",
+        "BufferVisibleSeparator",
+        "BufferInactiveSeparator",
+        "BufferAlternateSeparator",
+      }) do
+        set(group, {
+          fg = separator_fg,
           bg = line_bg,
           bold = false,
           italic = false,

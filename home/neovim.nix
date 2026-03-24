@@ -10,8 +10,8 @@ let
     gitsigns = pkgs.vimPlugins."gitsigns-nvim";
     lspconfig = pkgs.vimPlugins.nvim-lspconfig;
     lualine = pkgs.vimPlugins."lualine-nvim";
-    mini_icons = pkgs.vimPlugins."mini-icons";
     mini_nvim = pkgs.vimPlugins."mini-nvim";
+    nvim_web_devicons = pkgs.vimPlugins."nvim-web-devicons";
     nvim_autopairs = pkgs.vimPlugins."nvim-autopairs";
     treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins ( plugins: with plugins; [
       bash
@@ -43,8 +43,8 @@ let
       gitsigns = "${plugins.gitsigns}";
       lspconfig = "${plugins.lspconfig}";
       lualine = "${plugins.lualine}";
-      mini_icons = "${plugins.mini_icons}";
       mini_nvim = "${plugins.mini_nvim}";
+      nvim_web_devicons = "${plugins.nvim_web_devicons}";
       nvim_autopairs = "${plugins.nvim_autopairs}";
       treesitter = "${plugins.treesitter}";
     }
@@ -77,7 +77,7 @@ in
     xdg.configFile."nvim/lua/plugins/guess-indent.lua".source = ../nvim/lua/plugins/guess-indent.lua;
     xdg.configFile."nvim/lua/plugins/lsp.lua".source = ../nvim/lua/plugins/lsp.lua;
     xdg.configFile."nvim/lua/plugins/lualine.lua".source = ../nvim/lua/plugins/lualine.lua;
-    xdg.configFile."nvim/lua/plugins/mini-icons.lua".source = ../nvim/lua/plugins/mini-icons.lua;
+    xdg.configFile."nvim/lua/plugins/nvim-web-devicons.lua".source = ../nvim/lua/plugins/nvim-web-devicons.lua;
     xdg.configFile."nvim/lua/plugins/mini-pick.lua".source = ../nvim/lua/plugins/mini-pick.lua;
     xdg.configFile."nvim/lua/plugins/nvim-autopairs.lua".source = ../nvim/lua/plugins/nvim-autopairs.lua;
     xdg.configFile."nvim/lua/plugins/treesitter.lua".source = ../nvim/lua/plugins/treesitter.lua;
