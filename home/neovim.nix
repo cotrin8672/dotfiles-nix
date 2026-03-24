@@ -6,13 +6,18 @@ let
     barbar = pkgs.vimPlugins."barbar-nvim";
     blink_cmp = pkgs.vimPlugins."blink-cmp";
     everforest = pkgs.vimPlugins.everforest;
+    fidget = pkgs.vimPlugins."fidget-nvim";
     guess_indent = pkgs.vimPlugins."guess-indent-nvim";
     gitsigns = pkgs.vimPlugins."gitsigns-nvim";
     lspconfig = pkgs.vimPlugins.nvim-lspconfig;
     lualine = pkgs.vimPlugins."lualine-nvim";
     mini_icons = pkgs.vimPlugins."mini-icons";
     mini_nvim = pkgs.vimPlugins."mini-nvim";
+    neodim = pkgs.vimPlugins.neodim;
+    noice = pkgs.vimPlugins."noice-nvim";
+    nui = pkgs.vimPlugins."nui-nvim";
     nvim_autopairs = pkgs.vimPlugins."nvim-autopairs";
+    nvim_notify = pkgs.vimPlugins."nvim-notify";
     treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins ( plugins: with plugins; [
       bash
       zsh
@@ -39,13 +44,18 @@ let
       barbar = "${plugins.barbar}";
       blink_cmp = "${plugins.blink_cmp}";
       everforest = "${plugins.everforest}";
+      fidget = "${plugins.fidget}";
       guess_indent = "${plugins.guess_indent}";
       gitsigns = "${plugins.gitsigns}";
       lspconfig = "${plugins.lspconfig}";
       lualine = "${plugins.lualine}";
       mini_icons = "${plugins.mini_icons}";
       mini_nvim = "${plugins.mini_nvim}";
+      neodim = "${plugins.neodim}";
+      noice = "${plugins.noice}";
+      nui = "${plugins.nui}";
       nvim_autopairs = "${plugins.nvim_autopairs}";
+      nvim_notify = "${plugins.nvim_notify}";
       treesitter = "${plugins.treesitter}";
     }
   );
@@ -75,10 +85,13 @@ in
     xdg.configFile."nvim/lua/plugins/blink.lua".source = ../nvim/lua/plugins/blink.lua;
     xdg.configFile."nvim/lua/plugins/gitsigns.lua".source = ../nvim/lua/plugins/gitsigns.lua;
     xdg.configFile."nvim/lua/plugins/guess-indent.lua".source = ../nvim/lua/plugins/guess-indent.lua;
+    xdg.configFile."nvim/lua/plugins/fidget.lua".source = ../nvim/lua/plugins/fidget.lua;
     xdg.configFile."nvim/lua/plugins/lsp.lua".source = ../nvim/lua/plugins/lsp.lua;
     xdg.configFile."nvim/lua/plugins/lualine.lua".source = ../nvim/lua/plugins/lualine.lua;
     xdg.configFile."nvim/lua/plugins/mini-icons.lua".source = ../nvim/lua/plugins/mini-icons.lua;
     xdg.configFile."nvim/lua/plugins/mini-pick.lua".source = ../nvim/lua/plugins/mini-pick.lua;
+    xdg.configFile."nvim/lua/plugins/neodim.lua".source = ../nvim/lua/plugins/neodim.lua;
+    xdg.configFile."nvim/lua/plugins/noice.lua".source = ../nvim/lua/plugins/noice.lua;
     xdg.configFile."nvim/lua/plugins/nvim-autopairs.lua".source = ../nvim/lua/plugins/nvim-autopairs.lua;
     xdg.configFile."nvim/lua/plugins/treesitter.lua".source = ../nvim/lua/plugins/treesitter.lua;
     xdg.configFile."nvim/lua/plugins/everforest.lua".source = ../nvim/lua/plugins/everforest.lua;
