@@ -12,6 +12,7 @@ let
     fidget = pkgs.vimPlugins."fidget-nvim";
     guess_indent = pkgs.vimPlugins."guess-indent-nvim";
     gitsigns = pkgs.vimPlugins."gitsigns-nvim";
+    highlight_undo = pkgs.vimPlugins."highlight-undo-nvim";
     hlchunk = pkgs.vimPlugins."hlchunk-nvim";
     hlslens = pkgs.vimPlugins."nvim-hlslens";
     lspconfig = pkgs.vimPlugins.nvim-lspconfig;
@@ -66,6 +67,7 @@ let
       fidget = "${plugins.fidget}";
       guess_indent = "${plugins.guess_indent}";
       gitsigns = "${plugins.gitsigns}";
+      highlight_undo = "${plugins.highlight_undo}";
       hlchunk = "${plugins.hlchunk}";
       hlslens = "${plugins.hlslens}";
       lspconfig = "${plugins.lspconfig}";
@@ -124,6 +126,7 @@ in
     xdg.configFile."nvim/lua/plugins/gitsigns.lua".source = ../nvim/lua/plugins/gitsigns.lua;
     xdg.configFile."nvim/lua/plugins/guess-indent.lua".source = ../nvim/lua/plugins/guess-indent.lua;
     xdg.configFile."nvim/lua/plugins/fidget.lua".source = ../nvim/lua/plugins/fidget.lua;
+    xdg.configFile."nvim/lua/plugins/highlight-undo.lua".source = ../nvim/lua/plugins/highlight-undo.lua;
     xdg.configFile."nvim/lua/plugins/hlchunk.lua".source = ../nvim/lua/plugins/hlchunk.lua;
     xdg.configFile."nvim/lua/plugins/hlslens.lua".source = ../nvim/lua/plugins/hlslens.lua;
     xdg.configFile."nvim/lua/plugins/lsp.lua".source = ../nvim/lua/plugins/lsp.lua;
