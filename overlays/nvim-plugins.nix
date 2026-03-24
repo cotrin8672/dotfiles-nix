@@ -1,5 +1,16 @@
 final: prev: {
   vimPlugins = prev.vimPlugins // {
+    vim-edgemotion = prev.vimUtils.buildVimPlugin {
+      pname = "vim-edgemotion";
+      version = "unstable-2026-03-24";
+      src = prev.fetchFromGitHub {
+        owner = "haya14busa";
+        repo = "vim-edgemotion";
+        rev = "8d16bd92f6203dfe44157d43be7880f34fd5c060";
+        sha256 = "1w3nqkw7k2ryrw1rckj27a0jbjnvgc6fb7871fhb4ba2mpxd8l08";
+      };
+    };
+
     neodim = prev.vimUtils.buildVimPlugin {
       pname = "neodim";
       version = "unstable-2026-03-24";
