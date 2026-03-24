@@ -49,8 +49,6 @@ return {
       local normal = get_hl("Normal")
       local comment = get_hl("Comment")
       local tabline = get_hl("TabLine")
-      local tabline_sel = get_hl("TabLineSel")
-
       local line_bg = tabline.bg or normal.bg
       local active_fg = normal.fg or tabline.fg
       local inactive_fg = comment.fg or tabline.fg or normal.fg
@@ -90,29 +88,15 @@ return {
         "BufferInactiveSign",
         "BufferInactiveTarget",
         "BufferInactiveBtn",
-        "BufferInactiveIcon",
         "BufferAlternate",
         "BufferAlternateIndex",
         "BufferAlternateMod",
         "BufferAlternateSign",
         "BufferAlternateTarget",
         "BufferAlternateBtn",
-        "BufferAlternateIcon",
       }) do
         set(group, {
           fg = inactive_fg,
-          bg = line_bg,
-          bold = false,
-          italic = false,
-        })
-      end
-
-      for _, group in ipairs({
-        "BufferCurrentIcon",
-        "BufferVisibleIcon",
-      }) do
-        set(group, {
-          fg = active_fg,
           bg = line_bg,
           bold = false,
           italic = false,
