@@ -23,6 +23,8 @@ let
     mini_nvim = pkgs.vimPlugins."mini-nvim";
     neodim = pkgs.vimPlugins.neodim;
     noice = pkgs.vimPlugins."noice-nvim";
+    oil = pkgs.vimPlugins."oil-nvim";
+    oil_git_status = pkgs.vimPlugins."oil-git-status-nvim";
     nui = pkgs.vimPlugins."nui-nvim";
     nvim_autopairs = pkgs.vimPlugins."nvim-autopairs";
     nvim_notify = pkgs.vimPlugins."nvim-notify";
@@ -78,6 +80,8 @@ let
       mini_nvim = "${plugins.mini_nvim}";
       neodim = "${plugins.neodim}";
       noice = "${plugins.noice}";
+      oil = "${plugins.oil}";
+      oil_git_status = "${plugins.oil_git_status}";
       nui = "${plugins.nui}";
       nvim_autopairs = "${plugins.nvim_autopairs}";
       nvim_notify = "${plugins.nvim_notify}";
@@ -138,6 +142,8 @@ in
     xdg.configFile."nvim/lua/plugins/mini-pick.lua".source = ../nvim/lua/plugins/mini-pick.lua;
     xdg.configFile."nvim/lua/plugins/neodim.lua".source = ../nvim/lua/plugins/neodim.lua;
     xdg.configFile."nvim/lua/plugins/noice.lua".source = ../nvim/lua/plugins/noice.lua;
+    xdg.configFile."nvim/lua/plugins/oil-git-status.lua".source = ../nvim/lua/plugins/oil-git-status.lua;
+    xdg.configFile."nvim/lua/plugins/oil.lua".source = ../nvim/lua/plugins/oil.lua;
     xdg.configFile."nvim/lua/plugins/nvim-autopairs.lua".source = ../nvim/lua/plugins/nvim-autopairs.lua;
     xdg.configFile."nvim/lua/plugins/treesitter-context.lua".source = ../nvim/lua/plugins/treesitter-context.lua;
     xdg.configFile."nvim/lua/plugins/rainbow-delimiters.lua".source = ../nvim/lua/plugins/rainbow-delimiters.lua;
