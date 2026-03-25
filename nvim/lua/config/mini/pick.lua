@@ -1,4 +1,7 @@
 return function()
+  local pick = require("mini.pick")
+  local extra = require("mini.extra")
+
   local function pick_quickfix()
     local qf = vim.fn.getqflist({ id = 0, items = 1, title = 0 })
     local items = qf.items or {}
@@ -20,7 +23,7 @@ return function()
       }
     end, items)
 
-    MiniPick.start({
+    pick.start({
       source = {
         name = qf.title ~= "" and ("Quickfix: " .. qf.title) or "Quickfix",
         items = entries,
@@ -40,7 +43,7 @@ return function()
     })
   end
 
-  require("mini.pick").setup()
+  pick.setup()
 
   vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "*",
@@ -57,27 +60,27 @@ return function()
   vim.api.nvim_exec_autocmds("ColorScheme", { pattern = vim.g.colors_name })
 
   vim.keymap.set("n", "<leader>pf", function()
-    MiniExtra.pickers.git_files()
+    extra.pickers.git_files()
   end, { noremap = true, silent = true, desc = "Pick git files" })
 
   vim.keymap.set("n", "<leader>pg", function()
-    MiniPick.builtin.grep_live()
+    pick.builtin.grep_live()
   end, { noremap = true, silent = true, desc = "Live grep" })
 
   vim.keymap.set("n", "<leader>pb", function()
-    MiniExtra.pickers.git_branches()
+    extra.pickers.git_branches()
   end, { noremap = true, silent = true, desc = "Pick git branches" })
 
   vim.keymap.set("n", "<leader>pd", function()
-    MiniExtra.pickers.diagnostic({ scope = "all" })
+    extra.pickers.diagnostic({ scope = "all" })
   end, { noremap = true, silent = true, desc = "Pick diagnostics" })
 
   vim.keymap.set("n", "<leader>ps", function()
-    MiniExtra.pickers.lsp({ scope = "document_symbol" })
+    extra.pickers.lsp({ scope = "document_symbol" })
   end, { noremap = true, silent = true, desc = "Pick document symbols" })
 
   vim.keymap.set("n", "<leader>pS", function()
-    MiniExtra.pickers.lsp({ scope = "workspace_symbol" })
+    extra.pickers.lsp({ scope = "workspace_symbol" })
   end, { noremap = true, silent = true, desc = "Pick workspace symbols" })
 
   vim.keymap.set("n", "<leader>pq", pick_quickfix, {

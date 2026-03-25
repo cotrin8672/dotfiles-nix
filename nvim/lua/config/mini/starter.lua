@@ -5,6 +5,7 @@ return function()
   local starter_footer_ns = vim.api.nvim_create_namespace("starter_footer_colors")
   local starter_emphasis_ns = vim.api.nvim_create_namespace("starter_emphasis_colors")
   local starter_path_ns = vim.api.nvim_create_namespace("starter_path_colors")
+  local starter_ui_state = nil
   local header_hl_cache = {}
   local starter_header_lines = {
     "███╗   ██╗ ███████╗  ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
@@ -375,6 +376,28 @@ return function()
     end
   end
 
+  local function apply_starter_ui()
+    if starter_ui_state == nil then
+      starter_ui_state = {
+        laststatus = vim.o.laststatus,
+        showtabline = vim.o.showtabline,
+      }
+    end
+
+    vim.o.laststatus = 0
+    vim.o.showtabline = 0
+  end
+
+  local function restore_starter_ui()
+    if starter_ui_state == nil then
+      return
+    end
+
+    vim.o.laststatus = starter_ui_state.laststatus
+    vim.o.showtabline = starter_ui_state.showtabline
+    starter_ui_state = nil
+  end
+
   apply_starter_hl()
   vim.api.nvim_create_autocmd("ColorScheme", {
     callback = apply_starter_hl,
@@ -385,6 +408,7 @@ return function()
     callback = function()
       local buf = vim.api.nvim_get_current_buf()
       local opts = { noremap = true, silent = true, buffer = buf }
+      apply_starter_ui()
       vim.keymap.set("n", "j", function()
         MiniStarter.update_current_item("next", buf)
       end, opts)
@@ -402,7 +426,24 @@ return function()
   vim.api.nvim_create_autocmd({ "BufEnter", "VimResized" }, {
     callback = function(args)
       local buf = args.buf or vim.api.nvim_get_current_buf()
-      repaint_starter_buffer(buf)
+      if vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].filetype == "ministarter" then
+        apply_starter_ui()
+        repaint_starter_buffer(buf)
+        return
+      end
+
+      restore_starter_ui()
+    end,
+  })
+
+  vim.api.nvim_create_autocmd({ "BufLeave", "BufWipeout", "BufDelete" }, {
+    callback = function(args)
+      local buf = args.buf
+      if not vim.api.nvim_buf_is_valid(buf) or vim.bo[buf].filetype ~= "ministarter" then
+        return
+      end
+
+      vim.schedule(restore_starter_ui)
     end,
   })
 end
