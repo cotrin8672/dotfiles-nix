@@ -5,9 +5,8 @@ return {
   dir = nix.mini_nvim,
   event = "VeryLazy",
   config = function()
-    local map = require("mini.map")
-
-    map.setup()
-    map.open()
+    require("config.mini.animate")()
+    require("config.mini.map")()
+    require("config.mini.pick")()
   end,
 }

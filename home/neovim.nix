@@ -159,10 +159,8 @@ in
     xdg.configFile."nvim/lua/plugins/lspsaga.lua".source = ../nvim/lua/plugins/lspsaga.lua;
     xdg.configFile."nvim/lua/plugins/lualine.lua".source = ../nvim/lua/plugins/lualine.lua;
     xdg.configFile."nvim/lua/plugins/mkdir.lua".source = ../nvim/lua/plugins/mkdir.lua;
-    xdg.configFile."nvim/lua/plugins/mini-animate.lua".source = ../nvim/lua/plugins/mini-animate.lua;
     xdg.configFile."nvim/lua/plugins/mini-icons.lua".source = ../nvim/lua/plugins/mini-icons.lua;
-    xdg.configFile."nvim/lua/plugins/mini-map.lua".source = ../nvim/lua/plugins/mini-map.lua;
-    xdg.configFile."nvim/lua/plugins/mini-pick.lua".source = ../nvim/lua/plugins/mini-pick.lua;
+    xdg.configFile."nvim/lua/plugins/mini.lua".source = ../nvim/lua/plugins/mini.lua;
     xdg.configFile."nvim/lua/plugins/neodim.lua".source = ../nvim/lua/plugins/neodim.lua;
     xdg.configFile."nvim/lua/plugins/noice.lua".source = ../nvim/lua/plugins/noice.lua;
     xdg.configFile."nvim/lua/plugins/oil-git-status.lua".source = ../nvim/lua/plugins/oil-git-status.lua;
@@ -182,6 +180,9 @@ in
 
     xdg.configFile."nvim/lua/shared/diagnostic_icons.lua".source = ../nvim/lua/shared/diagnostic_icons.lua;
     xdg.configFile."nvim/lua/ui/diagnostic_icons.lua".source = ../nvim/lua/ui/diagnostic_icons.lua;
+    xdg.configFile."nvim/lua/config/mini/animate.lua".source = ../nvim/lua/config/mini/animate.lua;
+    xdg.configFile."nvim/lua/config/mini/map.lua".source = ../nvim/lua/config/mini/map.lua;
+    xdg.configFile."nvim/lua/config/mini/pick.lua".source = ../nvim/lua/config/mini/pick.lua;
 
     home.file.".config/nvim/lua/nix_paths.lua".source = nixPathsLua;
   }
