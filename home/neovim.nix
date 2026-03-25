@@ -40,6 +40,7 @@ let
     nvim_treesitter_context = pkgs.vimPlugins."nvim-treesitter-context";
     nvim_web_devicons = pkgs.vimPlugins."nvim-web-devicons";
     rainbow_delimiters = pkgs.vimPlugins."rainbow-delimiters-nvim";
+    satellite = pkgs.vimPlugins."satellite-nvim";
     smear_cursor = pkgs.vimPlugins."smear-cursor-nvim";
     tiny_inline_diagnostic = pkgs.vimPlugins."tiny-inline-diagnostic-nvim";
     trouble = pkgs.vimPlugins."trouble-nvim";
@@ -111,6 +112,7 @@ let
       treesitter = "${plugins.treesitter}";
       treesitter_parsers = map toString (plugins.treesitter.dependencies or []);
       rainbow_delimiters = "${plugins.rainbow_delimiters}";
+      satellite = "${plugins.satellite}";
       smear_cursor = "${plugins.smear_cursor}";
       vim_edgemotion = "${pkgs.vimPlugins.vim-edgemotion}";
     }
@@ -168,6 +170,7 @@ in
     xdg.configFile."nvim/lua/plugins/nvim-autopairs.lua".source = ../nvim/lua/plugins/nvim-autopairs.lua;
     xdg.configFile."nvim/lua/plugins/treesitter-context.lua".source = ../nvim/lua/plugins/treesitter-context.lua;
     xdg.configFile."nvim/lua/plugins/rainbow-delimiters.lua".source = ../nvim/lua/plugins/rainbow-delimiters.lua;
+    xdg.configFile."nvim/lua/plugins/satellite.lua".source = ../nvim/lua/plugins/satellite.lua;
     xdg.configFile."nvim/lua/plugins/smear-cursor.lua".source = ../nvim/lua/plugins/smear-cursor.lua;
     xdg.configFile."nvim/lua/plugins/tiny-inline-diagnostic.lua".source = ../nvim/lua/plugins/tiny-inline-diagnostic.lua;
     xdg.configFile."nvim/lua/plugins/trouble.lua".source = ../nvim/lua/plugins/trouble.lua;
@@ -181,7 +184,6 @@ in
     xdg.configFile."nvim/lua/shared/diagnostic_icons.lua".source = ../nvim/lua/shared/diagnostic_icons.lua;
     xdg.configFile."nvim/lua/ui/diagnostic_icons.lua".source = ../nvim/lua/ui/diagnostic_icons.lua;
     xdg.configFile."nvim/lua/config/mini/animate.lua".source = ../nvim/lua/config/mini/animate.lua;
-    xdg.configFile."nvim/lua/config/mini/map.lua".source = ../nvim/lua/config/mini/map.lua;
     xdg.configFile."nvim/lua/config/mini/pick.lua".source = ../nvim/lua/config/mini/pick.lua;
 
     home.file.".config/nvim/lua/nix_paths.lua".source = nixPathsLua;
