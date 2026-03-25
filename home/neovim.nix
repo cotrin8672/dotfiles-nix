@@ -68,12 +68,14 @@ let
       comment = "${plugins.comment}";
       dial = "${plugins.dial}";
       everforest = "${plugins.everforest}";
+      flash = "${plugins.flash}";
       fidget = "${plugins.fidget}";
       guess_indent = "${plugins.guess_indent}";
       gitsigns = "${plugins.gitsigns}";
       highlight_undo = "${plugins.highlight_undo}";
       hlchunk = "${plugins.hlchunk}";
       hlslens = "${plugins.hlslens}";
+      inc_rename = "${plugins.inc_rename}";
       lspconfig = "${plugins.lspconfig}";
       lsp_signature = "${plugins.lsp_signature}";
       lspsaga = "${plugins.lspsaga}";
@@ -131,6 +133,9 @@ in
     xdg.configFile."nvim/lua/plugins/bqf.lua".source = ../nvim/lua/plugins/bqf.lua;
     xdg.configFile."nvim/lua/plugins/blink.lua".source = ../nvim/lua/plugins/blink.lua;
     xdg.configFile."nvim/lua/plugins/comment.lua".source = ../nvim/lua/plugins/comment.lua;
+    xdg.configFile."nvim/lua/plugins/dap.lua".source = ../nvim/lua/plugins/dap.lua;
+    xdg.configFile."nvim/lua/plugins/dap-ui.lua".source = ../nvim/lua/plugins/dap-ui.lua;
+    xdg.configFile."nvim/lua/plugins/dap-virtual-text.lua".source = ../nvim/lua/plugins/dap-virtual-text.lua;
     xdg.configFile."nvim/lua/plugins/dial.lua".source = ../nvim/lua/plugins/dial.lua;
     xdg.configFile."nvim/lua/plugins/edgemotion.lua".source = ../nvim/lua/plugins/edgemotion.lua;
     xdg.configFile."nvim/lua/plugins/gitsigns.lua".source = ../nvim/lua/plugins/gitsigns.lua;
@@ -162,6 +167,7 @@ in
     xdg.configFile."nvim/lua/plugins/treesj.lua".source = ../nvim/lua/plugins/treesj.lua;
     xdg.configFile."nvim/lua/plugins/treesitter.lua".source = ../nvim/lua/plugins/treesitter.lua;
     xdg.configFile."nvim/lua/plugins/everforest.lua".source = ../nvim/lua/plugins/everforest.lua;
+    xdg.configFile."nvim/lua/plugins/flash.lua".source = ../nvim/lua/plugins/flash.lua;
 
     xdg.configFile."nvim/lua/shared/diagnostic_icons.lua".source = ../nvim/lua/shared/diagnostic_icons.lua;
     xdg.configFile."nvim/lua/ui/diagnostic_icons.lua".source = ../nvim/lua/ui/diagnostic_icons.lua;
