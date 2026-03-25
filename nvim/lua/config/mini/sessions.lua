@@ -66,7 +66,16 @@ return function()
   vim.api.nvim_create_autocmd("VimLeavePre", {
     callback = function()
       if managed_session_name == nil then
-        return
+        if vim.g.mini_starter_requested ~= true then
+          return
+        end
+
+        local root = git_root()
+        if not root then
+          return
+        end
+
+        managed_session_name = session_name(root)
       end
 
       sessions.write(managed_session_name, { force = true, verbose = false })
