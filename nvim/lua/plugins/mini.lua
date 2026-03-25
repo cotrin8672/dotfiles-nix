@@ -5,7 +5,6 @@ return {
   dir = nix.mini_nvim,
   event = "VeryLazy",
   config = function()
-    require("config.mini.animate")()
     require("config.mini.pick")()
   end,
 }

@@ -26,6 +26,7 @@ let
     mini_icons = pkgs.vimPlugins."mini-icons";
     mini_nvim = pkgs.vimPlugins."mini-nvim";
     neodim = pkgs.vimPlugins.neodim;
+    neoscroll = pkgs.vimPlugins."neoscroll-nvim";
     noice = pkgs.vimPlugins."noice-nvim";
     oil = pkgs.vimPlugins."oil-nvim";
     oil_git_status = pkgs.vimPlugins."oil-git-status-nvim";
@@ -92,6 +93,7 @@ let
       mini_icons = "${plugins.mini_icons}";
       mini_nvim = "${plugins.mini_nvim}";
       neodim = "${plugins.neodim}";
+      neoscroll = "${plugins.neoscroll}";
       noice = "${plugins.noice}";
       oil = "${plugins.oil}";
       oil_git_status = "${plugins.oil_git_status}";
@@ -164,6 +166,7 @@ in
     xdg.configFile."nvim/lua/plugins/mini-icons.lua".source = ../nvim/lua/plugins/mini-icons.lua;
     xdg.configFile."nvim/lua/plugins/mini.lua".source = ../nvim/lua/plugins/mini.lua;
     xdg.configFile."nvim/lua/plugins/neodim.lua".source = ../nvim/lua/plugins/neodim.lua;
+    xdg.configFile."nvim/lua/plugins/neoscroll.lua".source = ../nvim/lua/plugins/neoscroll.lua;
     xdg.configFile."nvim/lua/plugins/noice.lua".source = ../nvim/lua/plugins/noice.lua;
     xdg.configFile."nvim/lua/plugins/oil-git-status.lua".source = ../nvim/lua/plugins/oil-git-status.lua;
     xdg.configFile."nvim/lua/plugins/oil.lua".source = ../nvim/lua/plugins/oil.lua;
@@ -183,7 +186,6 @@ in
 
     xdg.configFile."nvim/lua/shared/diagnostic_icons.lua".source = ../nvim/lua/shared/diagnostic_icons.lua;
     xdg.configFile."nvim/lua/ui/diagnostic_icons.lua".source = ../nvim/lua/ui/diagnostic_icons.lua;
-    xdg.configFile."nvim/lua/config/mini/animate.lua".source = ../nvim/lua/config/mini/animate.lua;
     xdg.configFile."nvim/lua/config/mini/pick.lua".source = ../nvim/lua/config/mini/pick.lua;
 
     home.file.".config/nvim/lua/nix_paths.lua".source = nixPathsLua;
