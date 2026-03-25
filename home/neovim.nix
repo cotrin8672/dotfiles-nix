@@ -7,6 +7,7 @@ let
     bqf = pkgs.vimPlugins."nvim-bqf";
     blink_cmp = pkgs.vimPlugins."blink-cmp";
     comment = pkgs.vimPlugins."comment-nvim";
+    crates = pkgs.vimPlugins."crates-nvim";
     dial = pkgs.vimPlugins."dial-nvim";
     everforest = pkgs.vimPlugins.everforest;
     flash = pkgs.vimPlugins."flash-nvim";
@@ -21,6 +22,7 @@ let
     lsp_signature = pkgs.vimPlugins.lsp_signature-nvim;
     lspsaga = pkgs.vimPlugins."lspsaga-nvim";
     lualine = pkgs.vimPlugins."lualine-nvim";
+    mkdir = pkgs.vimPlugins."mkdir-nvim";
     mini_icons = pkgs.vimPlugins."mini-icons";
     mini_nvim = pkgs.vimPlugins."mini-nvim";
     neodim = pkgs.vimPlugins.neodim;
@@ -70,6 +72,7 @@ let
       bqf = "${plugins.bqf}";
       blink_cmp = "${plugins.blink_cmp}";
       comment = "${plugins.comment}";
+      crates = "${plugins.crates}";
       dial = "${plugins.dial}";
       everforest = "${plugins.everforest}";
       flash = "${plugins.flash}";
@@ -84,6 +87,7 @@ let
       lsp_signature = "${plugins.lsp_signature}";
       lspsaga = "${plugins.lspsaga}";
       lualine = "${plugins.lualine}";
+      mkdir = "${plugins.mkdir}";
       mini_icons = "${plugins.mini_icons}";
       mini_nvim = "${plugins.mini_nvim}";
       neodim = "${plugins.neodim}";
@@ -137,6 +141,7 @@ in
     xdg.configFile."nvim/lua/plugins/bqf.lua".source = ../nvim/lua/plugins/bqf.lua;
     xdg.configFile."nvim/lua/plugins/blink.lua".source = ../nvim/lua/plugins/blink.lua;
     xdg.configFile."nvim/lua/plugins/comment.lua".source = ../nvim/lua/plugins/comment.lua;
+    xdg.configFile."nvim/lua/plugins/crates.lua".source = ../nvim/lua/plugins/crates.lua;
     xdg.configFile."nvim/lua/plugins/dap.lua".source = ../nvim/lua/plugins/dap.lua;
     xdg.configFile."nvim/lua/plugins/dap-ui.lua".source = ../nvim/lua/plugins/dap-ui.lua;
     xdg.configFile."nvim/lua/plugins/dap-virtual-text.lua".source = ../nvim/lua/plugins/dap-virtual-text.lua;
@@ -153,6 +158,7 @@ in
     xdg.configFile."nvim/lua/plugins/lsp-signature.lua".source = ../nvim/lua/plugins/lsp-signature.lua;
     xdg.configFile."nvim/lua/plugins/lspsaga.lua".source = ../nvim/lua/plugins/lspsaga.lua;
     xdg.configFile."nvim/lua/plugins/lualine.lua".source = ../nvim/lua/plugins/lualine.lua;
+    xdg.configFile."nvim/lua/plugins/mkdir.lua".source = ../nvim/lua/plugins/mkdir.lua;
     xdg.configFile."nvim/lua/plugins/mini-animate.lua".source = ../nvim/lua/plugins/mini-animate.lua;
     xdg.configFile."nvim/lua/plugins/mini-icons.lua".source = ../nvim/lua/plugins/mini-icons.lua;
     xdg.configFile."nvim/lua/plugins/mini-map.lua".source = ../nvim/lua/plugins/mini-map.lua;
