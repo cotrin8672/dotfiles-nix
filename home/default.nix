@@ -28,7 +28,7 @@
     fd
     fzf
     bat
-    "vim-startuptime"
+    pkgs."vim-startuptime"
     eza
     zoxide
     dust
