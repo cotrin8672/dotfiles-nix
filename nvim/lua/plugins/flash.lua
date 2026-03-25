@@ -1,6 +1,7 @@
 local nix = require("nix_paths")
 
 return {
+  name = "flash.nvim",
   dir = nix.flash,
   event = "VeryLazy",
   opts = {

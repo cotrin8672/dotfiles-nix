@@ -1,6 +1,7 @@
 local nix = require("nix_paths")
 
 return {
+  name = "satellite.nvim",
   dir = nix.satellite,
   event = "VeryLazy",
   opts = {

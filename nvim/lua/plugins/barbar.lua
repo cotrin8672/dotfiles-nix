@@ -154,6 +154,11 @@ return {
     vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "FileType" }, {
       callback = update_barbar_visibility,
     })
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "MiniStarterOpened",
+      callback = update_barbar_visibility,
+    })
+    vim.schedule(update_barbar_visibility)
 
     local map = vim.keymap.set
     local key_opts = { noremap = true, silent = true }
