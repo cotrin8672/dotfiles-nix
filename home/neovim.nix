@@ -9,12 +9,14 @@ let
     comment = pkgs.vimPlugins."comment-nvim";
     dial = pkgs.vimPlugins."dial-nvim";
     everforest = pkgs.vimPlugins.everforest;
+    flash = pkgs.vimPlugins."flash-nvim";
     fidget = pkgs.vimPlugins."fidget-nvim";
     guess_indent = pkgs.vimPlugins."guess-indent-nvim";
     gitsigns = pkgs.vimPlugins."gitsigns-nvim";
     highlight_undo = pkgs.vimPlugins."highlight-undo-nvim";
     hlchunk = pkgs.vimPlugins."hlchunk-nvim";
     hlslens = pkgs.vimPlugins."nvim-hlslens";
+    inc_rename = pkgs.vimPlugins."inc-rename-nvim";
     lspconfig = pkgs.vimPlugins.nvim-lspconfig;
     lsp_signature = pkgs.vimPlugins.lsp_signature-nvim;
     lspsaga = pkgs.vimPlugins."lspsaga-nvim";
@@ -84,6 +86,10 @@ let
       oil_git_status = "${plugins.oil_git_status}";
       nui = "${plugins.nui}";
       nvim_autopairs = "${plugins.nvim_autopairs}";
+      nvim_dap = "${plugins.nvim_dap}";
+      nvim_dap_ui = "${plugins.nvim_dap_ui}";
+      nvim_dap_virtual_text = "${plugins.nvim_dap_virtual_text}";
+      nio = "${plugins.nio}";
       nvim_notify = "${plugins.nvim_notify}";
       nvim_ts_autotag = "${plugins.nvim_ts_autotag}";
       nvim_treesitter_context = "${plugins.nvim_treesitter_context}";
