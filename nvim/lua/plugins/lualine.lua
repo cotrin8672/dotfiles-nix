@@ -10,6 +10,10 @@ return {
   opts = {
     options = {
       theme = "everforest",
+      disabled_filetypes = {
+        statusline = { "ministarter" },
+        winbar = { "ministarter" },
+      },
     },
   },
 }

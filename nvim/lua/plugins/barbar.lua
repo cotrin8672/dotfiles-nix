@@ -142,6 +142,19 @@ return {
       callback = apply_barbar_colors,
     })
 
+    local function update_barbar_visibility()
+      if vim.bo.filetype == "ministarter" then
+        vim.o.showtabline = 0
+        return
+      end
+
+      vim.o.showtabline = 2
+    end
+
+    vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "FileType" }, {
+      callback = update_barbar_visibility,
+    })
+
     local map = vim.keymap.set
     local key_opts = { noremap = true, silent = true }
     map("n", "<Tab>", "<Cmd>BufferNext<CR>", key_opts)
