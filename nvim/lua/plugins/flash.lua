@@ -3,23 +3,23 @@ local nix = require("nix_paths")
 return {
   dir = nix.flash,
   event = "VeryLazy",
-  opts = {},
+  opts = {
+    modes = {
+      char = { enabled = false },
+      search = { enabled = false },
+      treesitter = { enabled = false },
+    },
+  },
   keys = {
     {
-      "s",
+      "<CR>",
       mode = { "n", "x", "o" },
       function()
-        require("flash").jump()
+        require("flash").jump({
+          label = { before = true, after = false },
+        })
       end,
       desc = "Flash",
-    },
-    {
-      "S",
-      mode = { "n", "x", "o" },
-      function()
-        require("flash").treesitter()
-      end,
-      desc = "Flash Treesitter",
     },
     {
       "r",

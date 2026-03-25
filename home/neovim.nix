@@ -4,7 +4,6 @@ let
   plugins = {
     lazy_nvim = pkgs.vimPlugins."lazy-nvim";
     barbar = pkgs.vimPlugins."barbar-nvim";
-    bqf = pkgs.vimPlugins."nvim-bqf";
     blink_cmp = pkgs.vimPlugins."blink-cmp";
     comment = pkgs.vimPlugins."comment-nvim";
     crates = pkgs.vimPlugins."crates-nvim";
@@ -23,6 +22,9 @@ let
     lspsaga = pkgs.vimPlugins."lspsaga-nvim";
     lualine = pkgs.vimPlugins."lualine-nvim";
     mkdir = pkgs.vimPlugins."mkdir-nvim";
+    mini_bufremove = pkgs.vimPlugins."mini-bufremove";
+    mini_extra = pkgs.vimPlugins."mini-extra";
+    mini_files = pkgs.vimPlugins."mini-files";
     mini_icons = pkgs.vimPlugins."mini-icons";
     mini_nvim = pkgs.vimPlugins."mini-nvim";
     neodim = pkgs.vimPlugins.neodim;
@@ -71,7 +73,6 @@ let
     "return " + lib.generators.toLua {} {
       lazy_nvim = "${plugins.lazy_nvim}";
       barbar = "${plugins.barbar}";
-      bqf = "${plugins.bqf}";
       blink_cmp = "${plugins.blink_cmp}";
       comment = "${plugins.comment}";
       crates = "${plugins.crates}";
@@ -90,6 +91,9 @@ let
       lspsaga = "${plugins.lspsaga}";
       lualine = "${plugins.lualine}";
       mkdir = "${plugins.mkdir}";
+      mini_bufremove = "${plugins.mini_bufremove}";
+      mini_extra = "${plugins.mini_extra}";
+      mini_files = "${plugins.mini_files}";
       mini_icons = "${plugins.mini_icons}";
       mini_nvim = "${plugins.mini_nvim}";
       neodim = "${plugins.neodim}";
@@ -142,7 +146,6 @@ in
     xdg.configFile."nvim/init.lua".source = ../nvim/init.lua;
 
     xdg.configFile."nvim/lua/plugins/barbar.lua".source = ../nvim/lua/plugins/barbar.lua;
-    xdg.configFile."nvim/lua/plugins/bqf.lua".source = ../nvim/lua/plugins/bqf.lua;
     xdg.configFile."nvim/lua/plugins/blink.lua".source = ../nvim/lua/plugins/blink.lua;
     xdg.configFile."nvim/lua/plugins/comment.lua".source = ../nvim/lua/plugins/comment.lua;
     xdg.configFile."nvim/lua/plugins/crates.lua".source = ../nvim/lua/plugins/crates.lua;
@@ -163,6 +166,8 @@ in
     xdg.configFile."nvim/lua/plugins/lspsaga.lua".source = ../nvim/lua/plugins/lspsaga.lua;
     xdg.configFile."nvim/lua/plugins/lualine.lua".source = ../nvim/lua/plugins/lualine.lua;
     xdg.configFile."nvim/lua/plugins/mkdir.lua".source = ../nvim/lua/plugins/mkdir.lua;
+    xdg.configFile."nvim/lua/plugins/mini-bufremove.lua".source = ../nvim/lua/plugins/mini-bufremove.lua;
+    xdg.configFile."nvim/lua/plugins/mini-extra.lua".source = ../nvim/lua/plugins/mini-extra.lua;
     xdg.configFile."nvim/lua/plugins/mini-icons.lua".source = ../nvim/lua/plugins/mini-icons.lua;
     xdg.configFile."nvim/lua/plugins/mini.lua".source = ../nvim/lua/plugins/mini.lua;
     xdg.configFile."nvim/lua/plugins/neodim.lua".source = ../nvim/lua/plugins/neodim.lua;
@@ -186,7 +191,20 @@ in
 
     xdg.configFile."nvim/lua/shared/diagnostic_icons.lua".source = ../nvim/lua/shared/diagnostic_icons.lua;
     xdg.configFile."nvim/lua/ui/diagnostic_icons.lua".source = ../nvim/lua/ui/diagnostic_icons.lua;
+    xdg.configFile."nvim/lua/config/mini/ai.lua".source = ../nvim/lua/config/mini/ai.lua;
+    xdg.configFile."nvim/lua/config/mini/align.lua".source = ../nvim/lua/config/mini/align.lua;
+    xdg.configFile."nvim/lua/config/mini/clue.lua".source = ../nvim/lua/config/mini/clue.lua;
+    xdg.configFile."nvim/lua/config/mini/cursorword.lua".source = ../nvim/lua/config/mini/cursorword.lua;
+    xdg.configFile."nvim/lua/config/mini/files.lua".source = ../nvim/lua/config/mini/files.lua;
+    xdg.configFile."nvim/lua/config/mini/hipatterns.lua".source = ../nvim/lua/config/mini/hipatterns.lua;
+    xdg.configFile."nvim/lua/config/mini/misc.lua".source = ../nvim/lua/config/mini/misc.lua;
+    xdg.configFile."nvim/lua/config/mini/move.lua".source = ../nvim/lua/config/mini/move.lua;
+    xdg.configFile."nvim/lua/config/mini/operators.lua".source = ../nvim/lua/config/mini/operators.lua;
     xdg.configFile."nvim/lua/config/mini/pick.lua".source = ../nvim/lua/config/mini/pick.lua;
+    xdg.configFile."nvim/lua/config/mini/sessions.lua".source = ../nvim/lua/config/mini/sessions.lua;
+    xdg.configFile."nvim/lua/config/mini/starter.lua".source = ../nvim/lua/config/mini/starter.lua;
+    xdg.configFile."nvim/lua/config/mini/surround.lua".source = ../nvim/lua/config/mini/surround.lua;
+    xdg.configFile."nvim/lua/config/mini/visits.lua".source = ../nvim/lua/config/mini/visits.lua;
 
     home.file.".config/nvim/lua/nix_paths.lua".source = nixPathsLua;
   }
