@@ -33,6 +33,17 @@ final: prev: {
       };
     };
 
+    nvim-nio = prev.vimUtils.buildVimPlugin {
+      pname = "nvim-nio";
+      version = "unstable-2026-03-25";
+      src = prev.fetchFromGitHub {
+        owner = "nvim-neotest";
+        repo = "nvim-nio";
+        rev = "a428f309119086dc78dd4b19306d2d67be884eee";
+        hash = "sha256-i6imNTb1xrfBlaeOyxyIwAZ/+o6ew9C4/z34a7/BgFg=";
+      };
+    };
+
     wisteria-nvim = prev.vimUtils.buildVimPlugin {
       pname = "wisteria.nvim";
       version = "unstable-2026-03-24";

@@ -29,6 +29,10 @@ let
     oil_git_status = pkgs.vimPlugins."oil-git-status-nvim";
     nui = pkgs.vimPlugins."nui-nvim";
     nvim_autopairs = pkgs.vimPlugins."nvim-autopairs";
+    nvim_dap = pkgs.vimPlugins."nvim-dap";
+    nvim_dap_ui = pkgs.vimPlugins."nvim-dap-ui";
+    nvim_dap_virtual_text = pkgs.vimPlugins."nvim-dap-virtual-text";
+    nio = pkgs.vimPlugins.nvim-nio;
     nvim_notify = pkgs.vimPlugins."nvim-notify";
     nvim_ts_autotag = pkgs.vimPlugins."nvim-ts-autotag";
     nvim_treesitter_context = pkgs.vimPlugins."nvim-treesitter-context";
@@ -144,6 +148,7 @@ in
     xdg.configFile."nvim/lua/plugins/highlight-undo.lua".source = ../nvim/lua/plugins/highlight-undo.lua;
     xdg.configFile."nvim/lua/plugins/hlchunk.lua".source = ../nvim/lua/plugins/hlchunk.lua;
     xdg.configFile."nvim/lua/plugins/hlslens.lua".source = ../nvim/lua/plugins/hlslens.lua;
+    xdg.configFile."nvim/lua/plugins/inc-rename.lua".source = ../nvim/lua/plugins/inc-rename.lua;
     xdg.configFile."nvim/lua/plugins/lsp.lua".source = ../nvim/lua/plugins/lsp.lua;
     xdg.configFile."nvim/lua/plugins/lsp-signature.lua".source = ../nvim/lua/plugins/lsp-signature.lua;
     xdg.configFile."nvim/lua/plugins/lspsaga.lua".source = ../nvim/lua/plugins/lspsaga.lua;
