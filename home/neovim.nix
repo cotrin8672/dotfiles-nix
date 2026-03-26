@@ -195,6 +195,7 @@ in
     xdg.configFile."nvim/lua/shared/diagnostic_icons.lua".source = ../nvim/lua/shared/diagnostic_icons.lua;
     xdg.configFile."nvim/lua/shared/float.lua".source = ../nvim/lua/shared/float.lua;
     xdg.configFile."nvim/lua/ui/diagnostic_icons.lua".source = ../nvim/lua/ui/diagnostic_icons.lua;
+    xdg.configFile."nvim/lua/ui/cursor_mode.lua".source = ../nvim/lua/ui/cursor_mode.lua;
     xdg.configFile."nvim/lua/config/mini/ai.lua".source = ../nvim/lua/config/mini/ai.lua;
     xdg.configFile."nvim/lua/config/mini/align.lua".source = ../nvim/lua/config/mini/align.lua;
     xdg.configFile."nvim/lua/config/mini/clue.lua".source = ../nvim/lua/config/mini/clue.lua;
