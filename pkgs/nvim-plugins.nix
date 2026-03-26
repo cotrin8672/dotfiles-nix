@@ -5,4 +5,5 @@ with pkgs.vimPlugins; [
   neotab-nvim
   nvim-nio
   wisteria-nvim
+  everforest-nvim
 ]

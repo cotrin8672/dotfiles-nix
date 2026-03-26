@@ -6,9 +6,11 @@ return {
   lazy = false,
   priority = 1000,
   config = function()
-    vim.g.everforest_background = "hard"
-    vim.g.everforest_enable_italic = false
-    vim.g.everforest_transparent_background = 1
+    require("everforest").setup({
+      background = "hard",
+      italics = false,
+      transparent_background_level = 2,
+    })
     vim.cmd.colorscheme("everforest")
   end,
 }

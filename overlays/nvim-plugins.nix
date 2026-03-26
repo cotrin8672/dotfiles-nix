@@ -54,5 +54,16 @@ final: prev: {
         hash = "sha256-BfsQuGPRBBqn/GNF7c51ntCHefLtRDywKRT7h3pvkwo=";
       };
     };
+
+    everforest-nvim = prev.vimUtils.buildVimPlugin {
+      pname = "everforest-nvim";
+      version = "unstable-2026-03-26";
+      src = prev.fetchFromGitHub {
+        owner = "neanias";
+        repo = "everforest-nvim";
+        rev = "323e7633034a8068636a11597cec03bca5465c50";
+        sha256 = "15qa2lxdhi9hc253kllcv0x4c32bcwfk51dabqk5h8l2bl96jxix";
+      };
+    };
   };
 }

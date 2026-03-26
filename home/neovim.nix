@@ -8,7 +8,7 @@ let
     comment = pkgs.vimPlugins."comment-nvim";
     crates = pkgs.vimPlugins."crates-nvim";
     dial = pkgs.vimPlugins."dial-nvim";
-    everforest = pkgs.vimPlugins.everforest;
+    everforest = pkgs.vimPlugins."everforest-nvim";
     flash = pkgs.vimPlugins."flash-nvim";
     fidget = pkgs.vimPlugins."fidget-nvim";
     guess_indent = pkgs.vimPlugins."guess-indent-nvim";
