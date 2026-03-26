@@ -71,8 +71,6 @@ return function()
       vim.api.nvim_set_hl(0, "MiniPickBorder", { bg = mini_pick_bg })
       vim.api.nvim_set_hl(0, "MiniPickPrompt", { bg = mini_pick_bg })
       vim.api.nvim_set_hl(0, "MiniPickPreviewLine", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-      vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
     end,
   })
 
