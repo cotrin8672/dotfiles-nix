@@ -60,6 +60,20 @@ return {
             color = submode_fg,
           },
         },
+        lualine_y = {
+          {
+            "progress",
+            color = submode_fg,
+          },
+        },
+        lualine_z = {
+          {
+            "location",
+            color = submode_bg,
+            separator = { left = "", right = "" },
+            padding = { left = 1, right = 1 },
+          },
+        },
       },
     })
   end,
