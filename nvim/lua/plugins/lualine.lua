@@ -27,9 +27,18 @@ return {
       return nil
     end
 
+    local function submode_fg()
+      local color = sm.get_submode_color()
+      if color and color ~= "" then
+        return { fg = color }
+      end
+      return nil
+    end
+
     require("lualine").setup({
       options = {
         theme = "everforest",
+        section_separators = { left = "", right = "" },
         disabled_filetypes = {
           statusline = { "ministarter" },
           winbar = { "ministarter" },
@@ -37,7 +46,19 @@ return {
       },
       sections = {
         lualine_a = {
-          { submode_label, color = submode_bg },
+          {
+            submode_label,
+            color = submode_bg,
+            separator = { left = "", right = "" },
+            padding = { left = 1, right = 1 },
+          },
+        },
+        lualine_b = {
+          {
+            "branch",
+            icon = "",
+            color = submode_fg,
+          },
         },
       },
     })
