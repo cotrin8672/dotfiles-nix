@@ -1,37 +1,30 @@
 return function(sm)
   local shared = require("config.submode.shared")
+  local submode_color = "#7DAEA3"
 
   local window_sm = sm.build_submode({
     name = "WINDOW",
     display_name = "WINDOW",
-    color = "#7DAEA3",
+    color = submode_color,
     timeoutlen = vim.o.timeoutlen,
     after_enter = function()
       shared.refresh_ui()
-      shared.open_window_hint()
     end,
     after_leave = function()
       shared.refresh_ui()
-      shared.close_window_hint()
     end,
   }, {
-    { "h", "<C-w>h" },
-    { "j", "<C-w>j" },
-    { "k", "<C-w>k" },
-    { "l", "<C-w>l" },
+    { "h", "<C-w><" },
+    { "j", "<C-w>+" },
+    { "k", "<C-w>-" },
+    { "l", "<C-w>>" },
+    { "<M-h>", "<C-w>h" },
+    { "<M-j>", "<C-w>j" },
+    { "<M-k>", "<C-w>k" },
+    { "<M-l>", "<C-w>l" },
     { "s", "<C-w>s" },
     { "v", "<C-w>v" },
-    { "+", "<C-w>+" },
-    { "-", "<C-w>-" },
-    { ">", "<C-w>>" },
-    { "<", "<C-w><" },
     { "x", "<C-w>c" },
-    {
-      "q",
-      function()
-        return "", sm.EXIT_SUBMODE
-      end,
-    },
     {
       "<Esc>",
       function()

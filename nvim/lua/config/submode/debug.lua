@@ -12,7 +12,6 @@ return function(sm)
       if ok then
         dapui.open()
       end
-      shared.open_debug_hint()
       shared.refresh_ui()
     end,
     after_leave = function()
@@ -20,7 +19,6 @@ return function(sm)
       if ok then
         dapui.close()
       end
-      shared.close_debug_hint()
       shared.refresh_ui()
     end,
   }, {
@@ -133,12 +131,6 @@ return function(sm)
     { "l", "l" },
     { "<Tab>", "<Cmd>BufferNext<CR>" },
     { "<S-Tab>", "<Cmd>BufferPrevious<CR>" },
-    {
-      "q",
-      function()
-        return "", sm.EXIT_SUBMODE
-      end,
-    },
     {
       "<Esc>",
       function()
