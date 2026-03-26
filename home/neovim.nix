@@ -27,6 +27,7 @@ let
     mini_files = pkgs.vimPlugins."mini-files";
     mini_icons = pkgs.vimPlugins."mini-icons";
     mini_nvim = pkgs.vimPlugins."mini-nvim";
+    nvim_submode = pkgs.vimPlugins."nvim-submode";
     neodim = pkgs.vimPlugins.neodim;
     neoscroll = pkgs.vimPlugins."neoscroll-nvim";
     noice = pkgs.vimPlugins."noice-nvim";
@@ -96,6 +97,7 @@ let
       mini_files = "${plugins.mini_files}";
       mini_icons = "${plugins.mini_icons}";
       mini_nvim = "${plugins.mini_nvim}";
+      nvim_submode = "${plugins.nvim_submode}";
       neodim = "${plugins.neodim}";
       neoscroll = "${plugins.neoscroll}";
       noice = "${plugins.noice}";
@@ -170,6 +172,7 @@ in
     xdg.configFile."nvim/lua/plugins/mini-extra.lua".source = ../nvim/lua/plugins/mini-extra.lua;
     xdg.configFile."nvim/lua/plugins/mini-icons.lua".source = ../nvim/lua/plugins/mini-icons.lua;
     xdg.configFile."nvim/lua/plugins/mini.lua".source = ../nvim/lua/plugins/mini.lua;
+    xdg.configFile."nvim/lua/plugins/submode.lua".source = ../nvim/lua/plugins/submode.lua;
     xdg.configFile."nvim/lua/plugins/neodim.lua".source = ../nvim/lua/plugins/neodim.lua;
     xdg.configFile."nvim/lua/plugins/neoscroll.lua".source = ../nvim/lua/plugins/neoscroll.lua;
     xdg.configFile."nvim/lua/plugins/noice.lua".source = ../nvim/lua/plugins/noice.lua;
@@ -206,6 +209,9 @@ in
     xdg.configFile."nvim/lua/config/mini/starter.lua".source = ../nvim/lua/config/mini/starter.lua;
     xdg.configFile."nvim/lua/config/mini/surround.lua".source = ../nvim/lua/config/mini/surround.lua;
     xdg.configFile."nvim/lua/config/mini/visits.lua".source = ../nvim/lua/config/mini/visits.lua;
+    xdg.configFile."nvim/lua/config/submode/window.lua".source = ../nvim/lua/config/submode/window.lua;
+    xdg.configFile."nvim/lua/config/submode/debug.lua".source = ../nvim/lua/config/submode/debug.lua;
+    xdg.configFile."nvim/lua/config/submode/shared.lua".source = ../nvim/lua/config/submode/shared.lua;
 
     home.file.".config/nvim/lua/nix_paths.lua".source = nixPathsLua;
   }

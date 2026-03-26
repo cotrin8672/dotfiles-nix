@@ -65,5 +65,16 @@ final: prev: {
         sha256 = "15qa2lxdhi9hc253kllcv0x4c32bcwfk51dabqk5h8l2bl96jxix";
       };
     };
+
+    nvim-submode = prev.vimUtils.buildVimPlugin {
+      pname = "nvim-submode";
+      version = "unstable-2026-03-26";
+      src = prev.fetchFromGitHub {
+        owner = "sirasagi62";
+        repo = "nvim-submode";
+        rev = "ec53f878dcfd52a824ec199dfb5af8e07c98fd5c";
+        sha256 = "1ixzwh921b8hagj7n6nspy78fcvd3nv5h85sk0sx75lljrsq0hcj";
+      };
+    };
   };
 }

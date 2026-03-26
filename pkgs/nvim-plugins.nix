@@ -6,4 +6,5 @@ with pkgs.vimPlugins; [
   nvim-nio
   wisteria-nvim
   everforest-nvim
+  nvim-submode
 ]

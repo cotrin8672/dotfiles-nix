@@ -36,13 +36,18 @@ vim.keymap.set('n', '<M-k>', '<C-w>k', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-l>', '<C-w>l', { noremap = true, silent = true })
 -- vim.keymap.set('n', '<leader>x', '<CMD>BufferClose<CMD>', { noremap = true, silent = true })
 
--- vim.api.nvim_create_autocmd('User', {
---   pattern = 'VeryLazy',
---   once = true,
---   callback = function()
---     require('ui.cursor_mode').setup()
---   end,
--- })
+vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained", "BufEnter" }, {
+  pattern = "*",
+  command = "checktime",
+})
+
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'VeryLazy',
+  once = true,
+  callback = function()
+    require('ui.cursor_mode').setup()
+  end,
+})
 
 local nix = require("nix_paths")
 
@@ -53,4 +58,3 @@ require("lazy").setup("plugins", {
   checker = { enabled = false },
   change_detection = { enabled = false },
 })
-
