@@ -9,11 +9,6 @@ local debug_hint_buf = nil
 local debug_hint_win = nil
 
 function M.refresh_ui()
-  local ok_cursor, cursor_mode = pcall(require, "ui.cursor_mode")
-  if ok_cursor and type(cursor_mode.refresh) == "function" then
-    cursor_mode.refresh()
-  end
-
   vim.schedule(function()
     local ok, lualine = pcall(require, "lualine")
     if ok then
