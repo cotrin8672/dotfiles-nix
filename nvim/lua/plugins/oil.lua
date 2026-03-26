@@ -1,4 +1,5 @@
 local nix = require("nix_paths")
+local float = require("shared.float")
 
 return {
   name = "oil.nvim",
@@ -11,6 +12,13 @@ return {
   },
   opts = {
     default_file_explorer = true,
+    float = {
+      max_width = 0.62,
+      max_height = 0.7,
+      win_options = {
+        winblend = float.blend,
+      },
+    },
     win_options = {
       signcolumn = "yes:2",
     },
@@ -22,9 +30,9 @@ return {
       ["<C-s>"] = "actions.select_vsplit",
       ["<C-h>"] = "actions.select_split",
       ["<C-t>"] = "actions.select_tab",
+      ["<Esc>"] = "actions.close",
       ["-"] = "actions.parent",
       ["g."] = "actions.toggle_hidden",
-      ["q"] = "actions.close",
     },
   },
   dependencies = {

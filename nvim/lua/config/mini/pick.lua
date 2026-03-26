@@ -1,6 +1,20 @@
 return function()
   local pick = require("mini.pick")
   local extra = require("mini.extra")
+  local float = require("shared.float")
+
+  local function center_picker_window()
+    local height = math.floor(vim.o.lines * 0.6)
+    local width = math.floor(vim.o.columns * 0.6)
+
+    return {
+      anchor = "NW",
+      height = height,
+      width = width,
+      row = math.floor((vim.o.lines - height) / 2),
+      col = math.floor((vim.o.columns - width) / 2),
+    }
+  end
 
   local function pick_quickfix()
     local qf = vim.fn.getqflist({ id = 0, items = 1, title = 0 })
@@ -43,17 +57,34 @@ return function()
     })
   end
 
-  pick.setup()
+  pick.setup({
+    window = {
+      config = center_picker_window,
+    },
+  })
 
   vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "*",
     callback = function()
-      vim.api.nvim_set_hl(0, "MiniPickNormal", { bg = "none" })
-      vim.api.nvim_set_hl(0, "MiniPickBorder", { bg = "none" })
-      vim.api.nvim_set_hl(0, "MiniPickPrompt", { bg = "none" })
+      local mini_pick_bg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "NormalFloat", link = false }).bg)
+      vim.api.nvim_set_hl(0, "MiniPickNormal", { bg = mini_pick_bg })
+      vim.api.nvim_set_hl(0, "MiniPickBorder", { bg = mini_pick_bg })
+      vim.api.nvim_set_hl(0, "MiniPickPrompt", { bg = mini_pick_bg })
       vim.api.nvim_set_hl(0, "MiniPickPreviewLine", { bg = "none" })
       vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
       vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+    end,
+  })
+
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniPickStart",
+    callback = function()
+      local ok, picker = pcall(pick.get_picker_state)
+      if not ok or not picker or not picker.windows or not picker.windows.main then
+        return
+      end
+
+      pcall(vim.api.nvim_set_option_value, "winblend", float.blend, { win = picker.windows.main })
     end,
   })
 
