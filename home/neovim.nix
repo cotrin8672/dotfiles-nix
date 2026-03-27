@@ -14,7 +14,6 @@ let
     fidget = pkgs.vimPlugins."fidget-nvim";
     guess_indent = pkgs.vimPlugins."guess-indent-nvim";
     gitsigns = pkgs.vimPlugins."gitsigns-nvim";
-    highlight_undo = pkgs.vimPlugins."highlight-undo-nvim";
     hlchunk = pkgs.vimPlugins."hlchunk-nvim";
     hlslens = pkgs.vimPlugins."nvim-hlslens";
     inc_rename = pkgs.vimPlugins."inc-rename-nvim";
@@ -51,6 +50,7 @@ let
     trouble = pkgs.vimPlugins."trouble-nvim";
     ts_context_commentstring = pkgs.vimPlugins."nvim-ts-context-commentstring";
     treesj = pkgs.vimPlugins.treesj;
+    undo_glow = pkgs.vimPlugins."undo-glow-nvim";
     treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins ( plugins: with plugins; [
       bash
       zsh
@@ -85,7 +85,6 @@ let
       fidget = "${plugins.fidget}";
       guess_indent = "${plugins.guess_indent}";
       gitsigns = "${plugins.gitsigns}";
-      highlight_undo = "${plugins.highlight_undo}";
       hlchunk = "${plugins.hlchunk}";
       hlslens = "${plugins.hlslens}";
       inc_rename = "${plugins.inc_rename}";
@@ -119,6 +118,7 @@ let
       trouble = "${plugins.trouble}";
       ts_context_commentstring = "${plugins.ts_context_commentstring}";
       treesj = "${plugins.treesj}";
+      undo_glow = "${plugins.undo_glow}";
       treesitter = "${plugins.treesitter}";
       treesitter_parsers = map toString (plugins.treesitter.dependencies or []);
       rainbow_delimiters = "${plugins.rainbow_delimiters}";
@@ -169,7 +169,6 @@ in
     xdg.configFile."nvim/lua/plugins/gitsigns.lua".source = ../nvim/lua/plugins/gitsigns.lua;
     xdg.configFile."nvim/lua/plugins/guess-indent.lua".source = ../nvim/lua/plugins/guess-indent.lua;
     xdg.configFile."nvim/lua/plugins/fidget.lua".source = ../nvim/lua/plugins/fidget.lua;
-    xdg.configFile."nvim/lua/plugins/highlight-undo.lua".source = ../nvim/lua/plugins/highlight-undo.lua;
     xdg.configFile."nvim/lua/plugins/hlchunk.lua".source = ../nvim/lua/plugins/hlchunk.lua;
     xdg.configFile."nvim/lua/plugins/hlslens.lua".source = ../nvim/lua/plugins/hlslens.lua;
     xdg.configFile."nvim/lua/plugins/inc-rename.lua".source = ../nvim/lua/plugins/inc-rename.lua;
@@ -197,6 +196,7 @@ in
     xdg.configFile."nvim/lua/plugins/trouble.lua".source = ../nvim/lua/plugins/trouble.lua;
     xdg.configFile."nvim/lua/plugins/ts-autotag.lua".source = ../nvim/lua/plugins/ts-autotag.lua;
     xdg.configFile."nvim/lua/plugins/ts-context-commentstring.lua".source = ../nvim/lua/plugins/ts-context-commentstring.lua;
+    xdg.configFile."nvim/lua/plugins/undo-glow.lua".source = ../nvim/lua/plugins/undo-glow.lua;
     xdg.configFile."nvim/lua/plugins/treesj.lua".source = ../nvim/lua/plugins/treesj.lua;
     xdg.configFile."nvim/lua/plugins/treesitter.lua".source = ../nvim/lua/plugins/treesitter.lua;
     xdg.configFile."nvim/lua/plugins/everforest.lua".source = ../nvim/lua/plugins/everforest.lua;

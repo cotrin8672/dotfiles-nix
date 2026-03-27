@@ -76,5 +76,16 @@ final: prev: {
         sha256 = "1ixzwh921b8hagj7n6nspy78fcvd3nv5h85sk0sx75lljrsq0hcj";
       };
     };
+
+    undo-glow-nvim = prev.vimUtils.buildVimPlugin {
+      pname = "undo-glow.nvim";
+      version = "unstable-2026-03-27";
+      src = prev.fetchFromGitHub {
+        owner = "y3owk1n";
+        repo = "undo-glow.nvim";
+        rev = "25314a94cdfd84a3ca62bada1f88ed00982659ac";
+        sha256 = "087k1s61wli2ki3fxf43pkqgffy6hxfbhs2alzg2jvyqf76vv1jj";
+      };
+    };
   };
 }
