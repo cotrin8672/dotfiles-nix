@@ -6,6 +6,7 @@ let
     barbar = pkgs.vimPlugins."barbar-nvim";
     blink_cmp = pkgs.vimPlugins."blink-cmp";
     comment = pkgs.vimPlugins."comment-nvim";
+    conform = pkgs.vimPlugins."conform-nvim";
     crates = pkgs.vimPlugins."crates-nvim";
     dial = pkgs.vimPlugins."dial-nvim";
     everforest = pkgs.vimPlugins."everforest-nvim";
@@ -76,6 +77,7 @@ let
       barbar = "${plugins.barbar}";
       blink_cmp = "${plugins.blink_cmp}";
       comment = "${plugins.comment}";
+      conform = "${plugins.conform}";
       crates = "${plugins.crates}";
       dial = "${plugins.dial}";
       everforest = "${plugins.everforest}";
@@ -142,6 +144,13 @@ in
 	rust-analyzer
 	taplo
 	marksman
+        stylua
+        shfmt
+        alejandra
+        statix
+        deadnix
+        markdownlint-cli
+        rustfmt
       ];
     };
 
@@ -150,6 +159,7 @@ in
     xdg.configFile."nvim/lua/plugins/barbar.lua".source = ../nvim/lua/plugins/barbar.lua;
     xdg.configFile."nvim/lua/plugins/blink.lua".source = ../nvim/lua/plugins/blink.lua;
     xdg.configFile."nvim/lua/plugins/comment.lua".source = ../nvim/lua/plugins/comment.lua;
+    xdg.configFile."nvim/lua/plugins/conform.lua".source = ../nvim/lua/plugins/conform.lua;
     xdg.configFile."nvim/lua/plugins/crates.lua".source = ../nvim/lua/plugins/crates.lua;
     xdg.configFile."nvim/lua/plugins/dap.lua".source = ../nvim/lua/plugins/dap.lua;
     xdg.configFile."nvim/lua/plugins/dap-ui.lua".source = ../nvim/lua/plugins/dap-ui.lua;

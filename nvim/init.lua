@@ -29,6 +29,53 @@ vim.opt.termguicolors = true
 vim.opt.signcolumn = 'yes'
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.laststatus = 3
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+
+local indent_group = vim.api.nvim_create_augroup('IndentDefaults', { clear = true })
+
+local function set_indent(width)
+  return function()
+    vim.bo.expandtab = true
+    vim.bo.tabstop = width
+    vim.bo.softtabstop = width
+    vim.bo.shiftwidth = width
+  end
+end
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = indent_group,
+  pattern = {
+    'bash',
+    'css',
+    'html',
+    'javascript',
+    'javascriptreact',
+    'json',
+    'jsonc',
+    'lua',
+    'markdown',
+    'nix',
+    'sh',
+    'toml',
+    'typescript',
+    'typescriptreact',
+    'zsh',
+  },
+  callback = set_indent(2),
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = indent_group,
+  pattern = {
+    'java',
+    'kotlin',
+    'rust',
+  },
+  callback = set_indent(4),
+})
 
 vim.keymap.set('n', '<M-h>', '<C-w>h', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-j>', '<C-w>j', { noremap = true, silent = true })
