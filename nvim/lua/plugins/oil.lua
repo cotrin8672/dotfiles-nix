@@ -27,8 +27,8 @@ return {
     },
     keymaps = {
       ["<CR>"] = "actions.select",
-      ["<C-s>"] = "actions.select_vsplit",
-      ["<C-h>"] = "actions.select_split",
+      ["<C-s>"] = "actions.select_split",
+      ["<C-v>"] = "actions.select_vsplit",
       ["<C-t>"] = "actions.select_tab",
       ["<Esc>"] = "actions.close",
       ["-"] = "actions.parent",

@@ -77,10 +77,6 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = set_indent(4),
 })
 
-vim.keymap.set('n', '<M-h>', '<C-w>h', { noremap = true, silent = true })
-vim.keymap.set('n', '<M-j>', '<C-w>j', { noremap = true, silent = true })
-vim.keymap.set('n', '<M-k>', '<C-w>k', { noremap = true, silent = true })
-vim.keymap.set('n', '<M-l>', '<C-w>l', { noremap = true, silent = true })
 -- vim.keymap.set('n', '<leader>x', '<CMD>BufferClose<CMD>', { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained", "BufEnter" }, {
