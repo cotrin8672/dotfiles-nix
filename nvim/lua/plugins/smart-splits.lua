@@ -7,6 +7,7 @@ return {
   opts = {
     default_amount = 3,
     at_edge = "stop",
+    wezterm_cli_path = "/mnt/c/Users/gummy/scoop/apps/wezterm-nightly/nightly-20260130/wezterm.exe",
   },
   config = function(_, opts)
     local smart_splits = require("smart-splits")
