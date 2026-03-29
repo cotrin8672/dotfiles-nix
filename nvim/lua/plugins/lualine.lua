@@ -10,6 +10,7 @@ return {
   config = function()
     local everforest = require("everforest")
     local colours = require("everforest.colours")
+    local diagnostic_icons = require("ui.diagnostic_icons")
     local sm = require("nvim-submode")
     local mode = require("lualine.utils.mode")
     local palette = colours.generate_palette(everforest.config, vim.o.background)
@@ -52,6 +53,12 @@ return {
       },
     }
 
+    vim.api.nvim_set_hl(0, "LualineLspDiag", { fg = palette.fg, bg = palette.bg5 })
+    vim.api.nvim_set_hl(0, "LualineLspDiagError", { fg = palette.red, bg = palette.bg5 })
+    vim.api.nvim_set_hl(0, "LualineLspDiagWarn", { fg = palette.orange, bg = palette.bg5 })
+    vim.api.nvim_set_hl(0, "LualineLspDiagHint", { fg = palette.aqua, bg = palette.bg5 })
+    vim.api.nvim_set_hl(0, "LualineLspDiagInfo", { fg = palette.green, bg = palette.bg5 })
+
     local function submode_label()
       local name = sm.get_submode_name()
       if name and name ~= "" then
@@ -92,6 +99,108 @@ return {
       return nil
     end
 
+    local function diagnostics_summary()
+      local diagnostics = vim.diagnostic.get(0)
+      local total = #diagnostics
+      if total == 0 then
+        return nil
+      end
+
+      local has_error = false
+      local has_warn = false
+      local has_hint = false
+
+      for _, diagnostic in ipairs(diagnostics) do
+        if diagnostic.severity == vim.diagnostic.severity.ERROR then
+          has_error = true
+          break
+        elseif diagnostic.severity == vim.diagnostic.severity.WARN then
+          has_warn = true
+        elseif diagnostic.severity == vim.diagnostic.severity.HINT then
+          has_hint = true
+        end
+      end
+
+      if has_error then
+        return total, vim.diagnostic.severity.ERROR
+      end
+      if has_warn then
+        return total, vim.diagnostic.severity.WARN
+      end
+      if has_hint then
+        return total, vim.diagnostic.severity.HINT
+      end
+      return total, vim.diagnostic.severity.INFO
+    end
+
+    local function lsp_client_names()
+      local clients = vim.lsp.get_clients({ bufnr = 0 })
+      if #clients == 0 then
+        return ""
+      end
+
+      local names = {}
+      for _, client in ipairs(clients) do
+        names[#names + 1] = client.name
+      end
+
+      table.sort(names)
+      return table.concat(names, ", ")
+    end
+
+    local function lsp_diagnostics()
+      local base_hl = "%#LualineLspDiag#"
+      local lsp_status = vim.lsp.status()
+      local total, severity = diagnostics_summary()
+
+      if lsp_status == "" then
+        lsp_status = lsp_client_names()
+      end
+
+      if lsp_status == "" then
+        return ""
+      end
+
+      if not total then
+        return table.concat({
+          base_hl,
+          "",
+          " ",
+          lsp_status,
+          " ",
+          "%#LualineLspDiagInfo#",
+          "",
+          " ",
+          base_hl,
+        })
+      end
+
+      local icon = diagnostic_icons.info_icon
+      local icon_hl = "%#LualineLspDiagInfo#"
+      if severity == vim.diagnostic.severity.ERROR then
+        icon = diagnostic_icons.error_icon
+        icon_hl = "%#LualineLspDiagError#"
+      elseif severity == vim.diagnostic.severity.WARN then
+        icon = diagnostic_icons.warn_icon
+        icon_hl = "%#LualineLspDiagWarn#"
+      elseif severity == vim.diagnostic.severity.HINT then
+        icon = diagnostic_icons.hint_icon
+        icon_hl = "%#LualineLspDiagHint#"
+      end
+
+      return table.concat({
+        base_hl,
+        "",
+        " ",
+        lsp_status,
+        " ",
+        icon_hl,
+        icon,
+        base_hl,
+        tostring(total),
+      })
+    end
+
     require("lualine").setup({
       options = {
         theme = theme,
@@ -126,8 +235,9 @@ return {
         lualine_c = {},
         lualine_x = {
           {
-            "lsp_status",
+            lsp_diagnostics,
             color = { bg = palette.bg5, fg = palette.fg },
+            padding = { left = 1, right = 1 },
           },
         },
         lualine_y = {
