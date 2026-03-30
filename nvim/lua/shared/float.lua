@@ -1,3 +1,3 @@
 return {
-  blend = 18,
+  blend = 15,
 }

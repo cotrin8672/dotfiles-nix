@@ -27,13 +27,6 @@ return {
     dependencies = {
       "plenary.nvim",
     },
-    keys = {
-      {
-        "<leader>gg",
-        "<cmd>LazyGit<cr>",
-        desc = "LazyGit",
-      },
-    },
   },
   {
     name = "diffview.nvim",

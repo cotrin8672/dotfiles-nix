@@ -17,6 +17,7 @@
   let
     system = "x86_64-linux";
     overlays = [
+      (import ./overlays/packages.nix)
       (import ./overlays/nvim-plugins.nix)
     ];
   in {

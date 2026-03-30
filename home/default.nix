@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./gwq.nix
     ./neovim.nix
   ];
 
