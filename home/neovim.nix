@@ -46,6 +46,7 @@ let
     nvim_notify = pkgs.vimPlugins."nvim-notify";
     nvim_ts_autotag = pkgs.vimPlugins."nvim-ts-autotag";
     nvim_treesitter_context = pkgs.vimPlugins."nvim-treesitter-context";
+    nvim_treesitter_endwise = pkgs.vimPlugins."nvim-treesitter-endwise";
     nvim_web_devicons = pkgs.vimPlugins."nvim-web-devicons";
     rainbow_delimiters = pkgs.vimPlugins."rainbow-delimiters-nvim";
     satellite = pkgs.vimPlugins."satellite-nvim";
@@ -123,6 +124,7 @@ let
       nvim_notify = "${plugins.nvim_notify}";
       nvim_ts_autotag = "${plugins.nvim_ts_autotag}";
       nvim_treesitter_context = "${plugins.nvim_treesitter_context}";
+      nvim_treesitter_endwise = "${plugins.nvim_treesitter_endwise}";
       nvim_web_devicons = "${plugins.nvim_web_devicons}";
       tiny_inline_diagnostic = "${plugins.tiny_inline_diagnostic}";
       toggleterm = "${plugins.toggleterm}";
@@ -204,6 +206,7 @@ in
     xdg.configFile."nvim/lua/plugins/oil.lua".source = ../nvim/lua/plugins/oil.lua;
     xdg.configFile."nvim/lua/plugins/nvim-autopairs.lua".source = ../nvim/lua/plugins/nvim-autopairs.lua;
     xdg.configFile."nvim/lua/plugins/treesitter-context.lua".source = ../nvim/lua/plugins/treesitter-context.lua;
+    xdg.configFile."nvim/lua/plugins/treesitter-endwise.lua".source = ../nvim/lua/plugins/treesitter-endwise.lua;
     xdg.configFile."nvim/lua/plugins/rainbow-delimiters.lua".source = ../nvim/lua/plugins/rainbow-delimiters.lua;
     xdg.configFile."nvim/lua/plugins/satellite.lua".source = ../nvim/lua/plugins/satellite.lua;
     xdg.configFile."nvim/lua/plugins/smear-cursor.lua".source = ../nvim/lua/plugins/smear-cursor.lua;
