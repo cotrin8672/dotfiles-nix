@@ -26,7 +26,6 @@ return {
     require("config.mini.align")()
     require("config.mini.clue")()
     require("config.mini.cursorword")()
-    require("config.mini.files")()
     require("config.mini.hipatterns")()
     require("config.mini.misc")()
     require("config.mini.move")()

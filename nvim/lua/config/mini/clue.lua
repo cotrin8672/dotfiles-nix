@@ -16,7 +16,6 @@ return function()
     clues = {
       { mode = "n", keys = "<Leader>a", desc = "+align" },
       { mode = "n", keys = "<Leader>e", desc = "Oil float" },
-      { mode = "n", keys = "<Leader>f", desc = "Mini files" },
       { mode = "n", keys = "<Leader>O", desc = "Oil cwd" },
       { mode = "n", keys = "<Leader>p", desc = "+pick" },
       { mode = "n", keys = "<Leader>pb", desc = "Pick git branches" },

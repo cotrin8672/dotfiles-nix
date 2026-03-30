@@ -6,6 +6,18 @@ return {
   dir = nix.toggleterm,
   version = "*",
   config = function()
+    local normal_float = vim.api.nvim_get_hl(0, { name = "NormalFloat", link = false })
+    local float_border = vim.api.nvim_get_hl(0, { name = "FloatBorder", link = false })
+
+    vim.api.nvim_set_hl(0, "ToggleTermNormal", {
+      bg = normal_float.bg,
+      fg = normal_float.fg,
+    })
+    vim.api.nvim_set_hl(0, "ToggleTermBorder", {
+      bg = float_border.bg,
+      fg = float_border.fg,
+    })
+
     require("toggleterm").setup({
       open_mapping = nil,
       shade_terminals = false,
@@ -34,5 +46,7 @@ return {
     vim.keymap.set("n", "<leader>f", function()
       lazygit:toggle()
     end, { desc = "LazyGit Float" })
+
+    vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
   end,
 }

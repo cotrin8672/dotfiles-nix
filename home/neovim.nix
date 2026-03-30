@@ -27,7 +27,6 @@ let
     mkdir = pkgs.vimPlugins."mkdir-nvim";
     mini_bufremove = pkgs.vimPlugins."mini-bufremove";
     mini_extra = pkgs.vimPlugins."mini-extra";
-    mini_files = pkgs.vimPlugins."mini-files";
     mini_icons = pkgs.vimPlugins."mini-icons";
     mini_nvim = pkgs.vimPlugins."mini-nvim";
     nvim_submode = pkgs.vimPlugins."nvim-submode";
@@ -105,7 +104,6 @@ let
       mkdir = "${plugins.mkdir}";
       mini_bufremove = "${plugins.mini_bufremove}";
       mini_extra = "${plugins.mini_extra}";
-      mini_files = "${plugins.mini_files}";
       mini_icons = "${plugins.mini_icons}";
       mini_nvim = "${plugins.mini_nvim}";
       nvim_submode = "${plugins.nvim_submode}";
@@ -229,7 +227,6 @@ in
     xdg.configFile."nvim/lua/config/mini/align.lua".source = ../nvim/lua/config/mini/align.lua;
     xdg.configFile."nvim/lua/config/mini/clue.lua".source = ../nvim/lua/config/mini/clue.lua;
     xdg.configFile."nvim/lua/config/mini/cursorword.lua".source = ../nvim/lua/config/mini/cursorword.lua;
-    xdg.configFile."nvim/lua/config/mini/files.lua".source = ../nvim/lua/config/mini/files.lua;
     xdg.configFile."nvim/lua/config/mini/hipatterns.lua".source = ../nvim/lua/config/mini/hipatterns.lua;
     xdg.configFile."nvim/lua/config/mini/misc.lua".source = ../nvim/lua/config/mini/misc.lua;
     xdg.configFile."nvim/lua/config/mini/move.lua".source = ../nvim/lua/config/mini/move.lua;
