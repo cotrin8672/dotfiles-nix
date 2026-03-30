@@ -57,6 +57,131 @@ return function()
     })
   end
 
+  local function get_octo_repo()
+    require("lazy").load({ plugins = { "octo.nvim" } })
+    return require("octo.utils").get_remote_name()
+  end
+
+  local function octo_list(endpoint, opts)
+    opts = opts or {}
+    require("lazy").load({ plugins = { "octo.nvim" } })
+
+    local gh = require("octo.gh")
+    local repo = get_octo_repo()
+    if repo == nil or repo == "" then
+      vim.notify("No GitHub remote repository found", vim.log.levels.WARN)
+      return nil
+    end
+
+    local owner, name = require("octo.utils").split_repo(repo)
+    local endpoint_with_query = string.format(
+      "repos/%s/%s/%s?per_page=%d&state=%s",
+      owner,
+      name,
+      endpoint,
+      opts.per_page or 100,
+      opts.state or "open"
+    )
+    local output, stderr = gh.api.get({
+      endpoint_with_query,
+      opts = {
+        mode = "sync",
+      },
+    })
+
+    if stderr and stderr ~= "" then
+      vim.notify(stderr, vim.log.levels.ERROR)
+      return nil
+    end
+
+    if output == nil or output == "" then
+      return nil
+    end
+
+    local ok, items = pcall(vim.json.decode, output)
+    if not ok then
+      vim.notify("Failed to decode Octo response", vim.log.levels.ERROR)
+      return nil
+    end
+
+    return items
+  end
+
+  local function open_octo_item(kind, number)
+    vim.cmd(string.format("Octo %s edit %d", kind, number))
+  end
+
+  local function pick_octo_pull_requests()
+    local items = octo_list("pulls")
+    if items == nil or vim.tbl_isempty(items) then
+      vim.notify("No open pull requests", vim.log.levels.INFO)
+      return
+    end
+
+    local entries = vim.tbl_map(function(item)
+      return {
+        number = item.number,
+        title = item.title,
+        author = item.user and item.user.login or "",
+        draft = item.draft == true,
+        state = item.state,
+      }
+    end, items)
+
+    pick.start({
+      source = {
+        name = "GitHub Pull Requests",
+        items = entries,
+        choose = function(item)
+          open_octo_item("pr", item.number)
+        end,
+      },
+      format = function(item)
+        local prefix = item.draft and "[DRAFT]" or "[PR]"
+        local author = item.author ~= "" and (" @" .. item.author) or ""
+        return string.format("%s #%d %s%s", prefix, item.number, item.title, author)
+      end,
+    })
+  end
+
+  local function pick_octo_issues()
+    local items = octo_list("issues")
+    if items == nil then
+      return
+    end
+
+    local entries = {}
+    for _, item in ipairs(items) do
+      if item.pull_request == nil then
+        entries[#entries + 1] = {
+          number = item.number,
+          title = item.title,
+          author = item.user and item.user.login or "",
+          state = item.state,
+        }
+      end
+    end
+
+    if vim.tbl_isempty(entries) then
+      vim.notify("No open issues", vim.log.levels.INFO)
+      return
+    end
+
+    pick.start({
+      source = {
+        name = "GitHub Issues",
+        items = entries,
+        choose = function(item)
+          open_octo_item("issue", item.number)
+        end,
+      },
+      format = function(item)
+        local author = item.author ~= "" and (" @" .. item.author) or ""
+        return string.format("[ISSUE] #%d %s%s", item.number, item.title, author)
+      end,
+    })
+  end
+
   pick.setup({
     window = {
       config = center_picker_window,
@@ -116,5 +241,17 @@ return function()
     noremap = true,
     silent = true,
     desc = "Pick quickfix items",
+  })
+
+  vim.keymap.set("n", "<leader>pp", pick_octo_pull_requests, {
+    noremap = true,
+    silent = true,
+    desc = "Pick GitHub pull requests",
+  })
+
+  vim.keymap.set("n", "<leader>pi", pick_octo_issues, {
+    noremap = true,
+    silent = true,
+    desc = "Pick GitHub issues",
   })
 end

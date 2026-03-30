@@ -9,11 +9,13 @@ let
     conform = pkgs.vimPlugins."conform-nvim";
     crates = pkgs.vimPlugins."crates-nvim";
     dial = pkgs.vimPlugins."dial-nvim";
+    diffview = pkgs.vimPlugins."diffview-nvim";
     everforest = pkgs.vimPlugins."everforest-nvim";
     flash = pkgs.vimPlugins."flash-nvim";
     fidget = pkgs.vimPlugins."fidget-nvim";
     guess_indent = pkgs.vimPlugins."guess-indent-nvim";
     gitsigns = pkgs.vimPlugins."gitsigns-nvim";
+    git_conflict = pkgs.vimPlugins."git-conflict-nvim";
     hlchunk = pkgs.vimPlugins."hlchunk-nvim";
     hlslens = pkgs.vimPlugins."nvim-hlslens";
     inc_rename = pkgs.vimPlugins."inc-rename-nvim";
@@ -32,6 +34,7 @@ let
     neodim = pkgs.vimPlugins.neodim;
     neoscroll = pkgs.vimPlugins."neoscroll-nvim";
     noice = pkgs.vimPlugins."noice-nvim";
+    octo = pkgs.vimPlugins."octo-nvim";
     oil = pkgs.vimPlugins."oil-nvim";
     oil_git_status = pkgs.vimPlugins."oil-git-status-nvim";
     plenary = pkgs.vimPlugins."plenary-nvim";
@@ -50,6 +53,7 @@ let
     smear_cursor = pkgs.vimPlugins."smear-cursor-nvim";
     smart_splits = pkgs.vimPlugins."smart-splits-nvim";
     tiny_inline_diagnostic = pkgs.vimPlugins."tiny-inline-diagnostic-nvim";
+    toggleterm = pkgs.vimPlugins."toggleterm-nvim";
     trouble = pkgs.vimPlugins."trouble-nvim";
     ts_context_commentstring = pkgs.vimPlugins."nvim-ts-context-commentstring";
     treesj = pkgs.vimPlugins.treesj;
@@ -83,11 +87,13 @@ let
       conform = "${plugins.conform}";
       crates = "${plugins.crates}";
       dial = "${plugins.dial}";
+      diffview = "${plugins.diffview}";
       everforest = "${plugins.everforest}";
       flash = "${plugins.flash}";
       fidget = "${plugins.fidget}";
       guess_indent = "${plugins.guess_indent}";
       gitsigns = "${plugins.gitsigns}";
+      git_conflict = "${plugins.git_conflict}";
       hlchunk = "${plugins.hlchunk}";
       hlslens = "${plugins.hlslens}";
       inc_rename = "${plugins.inc_rename}";
@@ -106,6 +112,7 @@ let
       neodim = "${plugins.neodim}";
       neoscroll = "${plugins.neoscroll}";
       noice = "${plugins.noice}";
+      octo = "${plugins.octo}";
       oil = "${plugins.oil}";
       oil_git_status = "${plugins.oil_git_status}";
       plenary = "${plugins.plenary}";
@@ -120,6 +127,7 @@ let
       nvim_treesitter_context = "${plugins.nvim_treesitter_context}";
       nvim_web_devicons = "${plugins.nvim_web_devicons}";
       tiny_inline_diagnostic = "${plugins.tiny_inline_diagnostic}";
+      toggleterm = "${plugins.toggleterm}";
       trouble = "${plugins.trouble}";
       ts_context_commentstring = "${plugins.ts_context_commentstring}";
       treesj = "${plugins.treesj}";
@@ -155,6 +163,7 @@ in
         alejandra
         statix
         deadnix
+        gh
         markdownlint-cli
         lazygit
         rustfmt
@@ -202,6 +211,7 @@ in
     xdg.configFile."nvim/lua/plugins/smear-cursor.lua".source = ../nvim/lua/plugins/smear-cursor.lua;
     xdg.configFile."nvim/lua/plugins/smart-splits.lua".source = ../nvim/lua/plugins/smart-splits.lua;
     xdg.configFile."nvim/lua/plugins/tiny-inline-diagnostic.lua".source = ../nvim/lua/plugins/tiny-inline-diagnostic.lua;
+    xdg.configFile."nvim/lua/plugins/toggleterm.lua".source = ../nvim/lua/plugins/toggleterm.lua;
     xdg.configFile."nvim/lua/plugins/trouble.lua".source = ../nvim/lua/plugins/trouble.lua;
     xdg.configFile."nvim/lua/plugins/ts-autotag.lua".source = ../nvim/lua/plugins/ts-autotag.lua;
     xdg.configFile."nvim/lua/plugins/ts-context-commentstring.lua".source = ../nvim/lua/plugins/ts-context-commentstring.lua;
