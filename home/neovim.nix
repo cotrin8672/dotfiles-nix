@@ -17,6 +17,7 @@ let
     hlchunk = pkgs.vimPlugins."hlchunk-nvim";
     hlslens = pkgs.vimPlugins."nvim-hlslens";
     inc_rename = pkgs.vimPlugins."inc-rename-nvim";
+    lazygit_nvim = pkgs.vimPlugins."lazygit-nvim";
     lspconfig = pkgs.vimPlugins.nvim-lspconfig;
     lsp_signature = pkgs.vimPlugins.lsp_signature-nvim;
     lspsaga = pkgs.vimPlugins."lspsaga-nvim";
@@ -33,6 +34,7 @@ let
     noice = pkgs.vimPlugins."noice-nvim";
     oil = pkgs.vimPlugins."oil-nvim";
     oil_git_status = pkgs.vimPlugins."oil-git-status-nvim";
+    plenary = pkgs.vimPlugins."plenary-nvim";
     nui = pkgs.vimPlugins."nui-nvim";
     nvim_autopairs = pkgs.vimPlugins."nvim-autopairs";
     nvim_dap = pkgs.vimPlugins."nvim-dap";
@@ -89,6 +91,7 @@ let
       hlchunk = "${plugins.hlchunk}";
       hlslens = "${plugins.hlslens}";
       inc_rename = "${plugins.inc_rename}";
+      lazygit_nvim = "${plugins.lazygit_nvim}";
       lspconfig = "${plugins.lspconfig}";
       lsp_signature = "${plugins.lsp_signature}";
       lspsaga = "${plugins.lspsaga}";
@@ -105,6 +108,7 @@ let
       noice = "${plugins.noice}";
       oil = "${plugins.oil}";
       oil_git_status = "${plugins.oil_git_status}";
+      plenary = "${plugins.plenary}";
       nui = "${plugins.nui}";
       nvim_autopairs = "${plugins.nvim_autopairs}";
       nvim_dap = "${plugins.nvim_dap}";
@@ -152,6 +156,7 @@ in
         statix
         deadnix
         markdownlint-cli
+        lazygit
         rustfmt
       ];
     };
@@ -174,6 +179,7 @@ in
     xdg.configFile."nvim/lua/plugins/hlchunk.lua".source = ../nvim/lua/plugins/hlchunk.lua;
     xdg.configFile."nvim/lua/plugins/hlslens.lua".source = ../nvim/lua/plugins/hlslens.lua;
     xdg.configFile."nvim/lua/plugins/inc-rename.lua".source = ../nvim/lua/plugins/inc-rename.lua;
+    xdg.configFile."nvim/lua/plugins/lazygit.lua".source = ../nvim/lua/plugins/lazygit.lua;
     xdg.configFile."nvim/lua/plugins/lsp.lua".source = ../nvim/lua/plugins/lsp.lua;
     xdg.configFile."nvim/lua/plugins/lsp-signature.lua".source = ../nvim/lua/plugins/lsp-signature.lua;
     xdg.configFile."nvim/lua/plugins/lspsaga.lua".source = ../nvim/lua/plugins/lspsaga.lua;
