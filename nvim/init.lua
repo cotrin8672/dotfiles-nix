@@ -15,73 +15,71 @@ vim.g.loaded_ruby_provider = 1
 vim.g.loaded_perl_provider = 1
 
 if vim.loader then
-  vim.loader.enable()
+	vim.loader.enable()
 end
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.opt.termguicolors = true
-vim.opt.signcolumn = 'yes'
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.signcolumn = "yes"
+vim.opt.clipboard = "unnamedplus"
 vim.opt.laststatus = 3
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
-local indent_group = vim.api.nvim_create_augroup('IndentDefaults', { clear = true })
+local indent_group = vim.api.nvim_create_augroup("IndentDefaults", { clear = true })
 
 local function set_indent(width)
-  return function()
-    vim.bo.expandtab = true
-    vim.bo.tabstop = width
-    vim.bo.softtabstop = width
-    vim.bo.shiftwidth = width
-  end
+	return function()
+		vim.bo.expandtab = true
+		vim.bo.tabstop = width
+		vim.bo.softtabstop = width
+		vim.bo.shiftwidth = width
+	end
 end
 
-vim.api.nvim_create_autocmd('FileType', {
-  group = indent_group,
-  pattern = {
-    'bash',
-    'css',
-    'html',
-    'javascript',
-    'javascriptreact',
-    'json',
-    'jsonc',
-    'lua',
-    'markdown',
-    'nix',
-    'sh',
-    'toml',
-    'typescript',
-    'typescriptreact',
-    'zsh',
-  },
-  callback = set_indent(2),
+vim.api.nvim_create_autocmd("FileType", {
+	group = indent_group,
+	pattern = {
+		"bash",
+		"css",
+		"html",
+		"javascript",
+		"javascriptreact",
+		"json",
+		"jsonc",
+		"lua",
+		"markdown",
+		"nix",
+		"sh",
+		"toml",
+		"typescript",
+		"typescriptreact",
+		"zsh",
+	},
+	callback = set_indent(2),
 })
 
-vim.api.nvim_create_autocmd('FileType', {
-  group = indent_group,
-  pattern = {
-    'java',
-    'kotlin',
-    'rust',
-  },
-  callback = set_indent(4),
+vim.api.nvim_create_autocmd("FileType", {
+	group = indent_group,
+	pattern = {
+		"java",
+		"kotlin",
+		"rust",
+	},
+	callback = set_indent(4),
 })
-
--- vim.keymap.set('n', '<leader>x', '<CMD>BufferClose<CMD>', { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained", "BufEnter" }, {
-  pattern = "*",
-  command = "checktime",
+	pattern = "*",
+	command = "checktime",
 })
 
 local nix = require("nix_paths")
@@ -89,7 +87,7 @@ local nix = require("nix_paths")
 vim.opt.rtp:prepend(nix.lazy_nvim)
 
 require("lazy").setup("plugins", {
-  install = { missing = false },
-  checker = { enabled = false },
-  change_detection = { enabled = false },
+	install = { missing = false },
+	checker = { enabled = false },
+	change_detection = { enabled = false },
 })

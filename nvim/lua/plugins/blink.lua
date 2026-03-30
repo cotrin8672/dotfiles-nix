@@ -1,4 +1,5 @@
 local nix = require("nix_paths")
+local float = require("shared.float")
 
 return {
   name = "blink.cmp",
@@ -13,8 +14,14 @@ return {
         nerd_font_variant = "mono",
       },
       completion = {
+        menu = {
+          winblend = float.blend,
+        },
         documentation = {
           auto_show = false,
+          window = {
+            winblend = float.blend,
+          },
         },
       },
       sources = {
@@ -27,4 +34,3 @@ return {
     })
   end,
 }
-
