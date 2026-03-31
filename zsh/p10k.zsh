@@ -119,6 +119,7 @@
 
     typeset -g my_git_format=$res
   }
+  functions -M my_git_formatter 2>/dev/null
 
   typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${$((my_git_formatter(1)))+${my_git_format}}'
   typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='${$((my_git_formatter(0)))+${my_git_format}}'
