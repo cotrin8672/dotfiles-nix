@@ -143,7 +143,7 @@
       [[ -z $label ]] && label=/
     fi
 
-    p10k segment -b '#272e33' -f '#7fbbb3' -i '' -t " ${label} "
+    p10k segment -b '#272e33' -f '#7fbbb3' -i ' ' -t " ${label} "
   }
 }
 
