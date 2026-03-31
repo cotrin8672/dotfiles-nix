@@ -12,10 +12,6 @@ use = ["zsh-history-substring-search.zsh"]
 local = "@zsh_completions@"
 apply = ["fpath"]
 
-[plugins.zsh-abbr]
-local = "@zsh_abbr@"
-use = ["zsh-abbr.plugin.zsh"]
-
 [plugins.fast-syntax-highlighting]
 local = "@fast_syntax_highlighting@"
 use = ["fast-syntax-highlighting.plugin.zsh"]

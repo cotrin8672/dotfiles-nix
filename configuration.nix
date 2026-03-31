@@ -17,9 +17,7 @@
   wsl.defaultUser = "cotrin";
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "zsh-abbr"
-  ];
+  nixpkgs.config.allowUnfreePredicate = pkg: false;
 
   environment.systemPackages = with pkgs; [
 
