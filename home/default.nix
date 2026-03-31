@@ -4,6 +4,7 @@
   imports = [
     ./gwq.nix
     ./neovim.nix
+    ./zsh.nix
   ];
 
   home.username = "cotrin";
@@ -18,7 +19,6 @@
   };
 
   programs.home-manager.enable = true;
-  programs.zsh.enable = true;
 
   home.packages = with (pkgs // llm-agents.packages.${pkgs.stdenv.hostPlatform.system}); [
     chezmoi
@@ -37,5 +37,6 @@
     dust
     ghq
     kotlin-lsp
+    sheldon
   ];
 }

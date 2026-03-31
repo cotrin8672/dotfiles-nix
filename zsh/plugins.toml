@@ -1,0 +1,21 @@
+shell = "zsh"
+
+[plugins.autosuggestions]
+local = "@autosuggestions@"
+use = ["zsh-autosuggestions.zsh"]
+
+[plugins.history-substring-search]
+local = "@history_substring_search@"
+use = ["zsh-history-substring-search.zsh"]
+
+[plugins.zsh-completions]
+local = "@zsh_completions@"
+apply = ["fpath"]
+
+[plugins.zsh-abbr]
+local = "@zsh_abbr@"
+use = ["zsh-abbr.plugin.zsh"]
+
+[plugins.syntax-highlighting]
+local = "@syntax_highlighting@"
+use = ["zsh-syntax-highlighting.zsh"]
