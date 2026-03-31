@@ -4,7 +4,6 @@ let
   sheldonPluginsToml = pkgs.replaceVars ../zsh/plugins.toml {
     autosuggestions = "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions";
     history_substring_search = "${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search";
-    powerlevel10k = "${pkgs.zsh-powerlevel10k}/share/zsh/themes/powerlevel10k";
     zsh_abbr = "${pkgs.zsh-abbr}/share/zsh/zsh-abbr";
     zsh_completions = "${pkgs.zsh-completions}/share/zsh/site-functions";
     syntax_highlighting = "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting";
@@ -20,6 +19,7 @@ in
       export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
       eval "$(${pkgs.sheldon}/bin/sheldon source)"
+      source "${pkgs.zsh-powerlevel10k}/share/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme"
       [[ -r "$HOME/.config/p10k/p10k.zsh" ]] && source "$HOME/.config/p10k/p10k.zsh"
 
       autoload -U compinit

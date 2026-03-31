@@ -1,9 +1,5 @@
 shell = "zsh"
 
-[plugins.powerlevel10k]
-local = "@powerlevel10k@"
-use = ["powerlevel10k.zsh-theme"]
-
 [plugins.autosuggestions]
 local = "@autosuggestions@"
 use = ["zsh-autosuggestions.zsh"]
