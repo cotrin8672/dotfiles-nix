@@ -64,7 +64,7 @@
 
   typeset -g POWERLEVEL9K_DIR_NAME_BACKGROUND='#272e33'
   typeset -g POWERLEVEL9K_DIR_NAME_FOREGROUND='#7fbbb3'
-  typeset -g POWERLEVEL9K_DIR_NAME_VISUAL_IDENTIFIER_EXPANSION=
+  typeset -g POWERLEVEL9K_DIR_NAME_VISUAL_IDENTIFIER_EXPANSION=''
 
   typeset -g POWERLEVEL9K_VCS_BACKGROUND='#272e33'
   typeset -g POWERLEVEL9K_VCS_BRANCH_ICON=' '
@@ -134,10 +134,15 @@
   function prompt_dir_name() {
     emulate -L zsh
 
-    local label=${PWD:t}
-    [[ -z $label ]] && label=/
+    local label
+    if [[ $PWD == $HOME ]]; then
+      label='~'
+    else
+      label=${PWD:t}
+      [[ -z $label ]] && label=/
+    fi
 
-    p10k segment -b '#272e33' -f '#7fbbb3' -t "${label} "
+    p10k segment -b '#272e33' -f '#7fbbb3' -i '' -t "${label} "
   }
 }
 
