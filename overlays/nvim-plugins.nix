@@ -87,5 +87,16 @@ final: prev: {
         sha256 = "087k1s61wli2ki3fxf43pkqgffy6hxfbhs2alzg2jvyqf76vv1jj";
       };
     };
+
+    kotlin-nvim = prev.vimUtils.buildVimPlugin {
+      pname = "kotlin.nvim";
+      version = "unstable-2026-03-31";
+      src = prev.fetchFromGitHub {
+        owner = "AlexandrosAlexiou";
+        repo = "kotlin.nvim";
+        rev = "262340932602a77ce0be12aab949864a37a756bc";
+        hash = "sha256-SyYeGwFWCX1zNVV5muzxC6Y3Y6I9V67CNlyEldwj4ck=";
+      };
+    };
   };
 }

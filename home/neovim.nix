@@ -19,6 +19,7 @@ let
     hlchunk = pkgs.vimPlugins."hlchunk-nvim";
     hlslens = pkgs.vimPlugins."nvim-hlslens";
     inc_rename = pkgs.vimPlugins."inc-rename-nvim";
+    kotlin_nvim = pkgs.vimPlugins."kotlin-nvim";
     lazygit_nvim = pkgs.vimPlugins."lazygit-nvim";
     lspconfig = pkgs.vimPlugins.nvim-lspconfig;
     lsp_signature = pkgs.vimPlugins.lsp_signature-nvim;
@@ -97,6 +98,7 @@ let
       hlchunk = "${plugins.hlchunk}";
       hlslens = "${plugins.hlslens}";
       inc_rename = "${plugins.inc_rename}";
+      kotlin_nvim = "${plugins.kotlin_nvim}";
       lazygit_nvim = "${plugins.lazygit_nvim}";
       lspconfig = "${plugins.lspconfig}";
       lsp_signature = "${plugins.lsp_signature}";
@@ -188,6 +190,7 @@ in
     xdg.configFile."nvim/lua/plugins/hlchunk.lua".source = ../nvim/lua/plugins/hlchunk.lua;
     xdg.configFile."nvim/lua/plugins/hlslens.lua".source = ../nvim/lua/plugins/hlslens.lua;
     xdg.configFile."nvim/lua/plugins/inc-rename.lua".source = ../nvim/lua/plugins/inc-rename.lua;
+    xdg.configFile."nvim/lua/plugins/kotlin.lua".source = ../nvim/lua/plugins/kotlin.lua;
     xdg.configFile."nvim/lua/plugins/lazygit.lua".source = ../nvim/lua/plugins/lazygit.lua;
     xdg.configFile."nvim/lua/plugins/lsp.lua".source = ../nvim/lua/plugins/lsp.lua;
     xdg.configFile."nvim/lua/plugins/lsp-signature.lua".source = ../nvim/lua/plugins/lsp-signature.lua;
