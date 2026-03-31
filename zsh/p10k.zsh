@@ -65,7 +65,7 @@
 
   typeset -g POWERLEVEL9K_DIR_NAME_BACKGROUND='#272e33'
   typeset -g POWERLEVEL9K_DIR_NAME_FOREGROUND='#7fbbb3'
-  typeset -g POWERLEVEL9K_DIR_NAME_VISUAL_IDENTIFIER_EXPANSION='󰉋'
+  typeset -g POWERLEVEL9K_DIR_NAME_VISUAL_IDENTIFIER_EXPANSION=' 󰉋 '
 
   typeset -g POWERLEVEL9K_VCS_BACKGROUND='#2e383c'
   typeset -g POWERLEVEL9K_VCS_BRANCH_ICON=' '
@@ -75,7 +75,7 @@
   typeset -g POWERLEVEL9K_VCS_DISABLE_GITSTATUS_FORMATTING=true
   typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
   typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_COLOR='#7fbbb3'
-  typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_EXPANSION='  '
   typeset -g POWERLEVEL9K_VCS_LOADING_VISUAL_IDENTIFIER_COLOR=244
   typeset -g POWERLEVEL9K_VCS_BACKENDS=(git)
   typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND='#7fbbb3'
@@ -117,7 +117,7 @@
     (( VCS_STATUS_NUM_STAGED )) && res+=" ${modified}+${VCS_STATUS_NUM_STAGED}"
     (( VCS_STATUS_NUM_UNSTAGED )) && res+=" ${modified}!${VCS_STATUS_NUM_UNSTAGED}"
     (( VCS_STATUS_NUM_UNTRACKED )) && res+=" ${untracked}?${VCS_STATUS_NUM_UNTRACKED}"
-    [[ -n $res ]] && res="[${res}]"
+    [[ -n $res ]] && res="[$res]"
 
     typeset -g my_git_format=$res
   }
@@ -144,7 +144,7 @@
       [[ -z $label ]] && label=/
     fi
 
-    p10k segment -b '#272e33' -f '#7fbbb3' -i ' 󰉋' -t " ${label} "
+    p10k segment -b '#272e33' -f '#7fbbb3' -t "${label}"
   }
 }
 
