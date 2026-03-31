@@ -79,7 +79,7 @@
   typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND='#7fbbb3'
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='#83c092'
   typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='#dbbc7f'
-  typeset -g POWERLEVEL9K_VCS_PREFIX='╲ '
+  typeset -g POWERLEVEL9K_VCS_PREFIX=' ╲ '
 
   function my_git_formatter() {
     emulate -L zsh
@@ -115,7 +115,7 @@
     (( VCS_STATUS_NUM_STAGED )) && res+=" ${modified}+${VCS_STATUS_NUM_STAGED}"
     (( VCS_STATUS_NUM_UNSTAGED )) && res+=" ${modified}!${VCS_STATUS_NUM_UNSTAGED}"
     (( VCS_STATUS_NUM_UNTRACKED )) && res+=" ${untracked}?${VCS_STATUS_NUM_UNTRACKED}"
-    [[ -n $res ]] && res="[$res]"
+    [[ -n $res ]] && res=" [ $res ] "
 
     typeset -g my_git_format=$res
   }
@@ -142,7 +142,7 @@
       [[ -z $label ]] && label=/
     fi
 
-    p10k segment -b '#272e33' -f '#7fbbb3' -i '' -t "${label} "
+    p10k segment -b '#272e33' -f '#7fbbb3' -i '' -t " ${label} "
   }
 }
 
