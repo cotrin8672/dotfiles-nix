@@ -16,6 +16,6 @@ apply = ["fpath"]
 local = "@zsh_abbr@"
 use = ["zsh-abbr.plugin.zsh"]
 
-[plugins.syntax-highlighting]
-local = "@syntax_highlighting@"
-use = ["zsh-syntax-highlighting.zsh"]
+[plugins.fast-syntax-highlighting]
+local = "@fast_syntax_highlighting@"
+use = ["fast-syntax-highlighting.plugin.zsh"]
