@@ -80,7 +80,7 @@
   typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND='#7fbbb3'
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='#83c092'
   typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='#dbbc7f'
-  typeset -g POWERLEVEL9K_VCS_PREFIX=
+  typeset -g POWERLEVEL9K_VCS_PREFIX=' '
 
   function my_git_formatter() {
     emulate -L zsh
