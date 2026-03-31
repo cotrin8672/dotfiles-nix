@@ -18,6 +18,7 @@
   };
 
   programs.home-manager.enable = true;
+  programs.zsh.enable = true;
 
   home.packages = with (pkgs // llm-agents.packages.${pkgs.stdenv.hostPlatform.system}); [
     chezmoi

@@ -22,10 +22,13 @@
 
   ];
 
+  programs.zsh.enable = true;
+
   users.users.cotrin = {
     isNormalUser = true;
     extraGroups = ["wheel"];
     initialPassword = "changeme";
+    shell = pkgs.zsh;
   };
 
   # This value determines the NixOS release from which the default
