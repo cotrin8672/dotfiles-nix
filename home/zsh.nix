@@ -4,6 +4,7 @@ let
   sheldonPluginsToml = pkgs.replaceVars ../zsh/plugins.toml {
     autosuggestions = "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions";
     history_substring_search = "${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search";
+    powerlevel10k = "${pkgs.zsh-powerlevel10k}/share/zsh/themes/powerlevel10k";
     zsh_abbr = "${pkgs.zsh-abbr}/share/zsh/zsh-abbr";
     zsh_completions = "${pkgs.zsh-completions}/share/zsh/site-functions";
     syntax_highlighting = "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting";
@@ -16,15 +17,16 @@ in
     enableCompletion = false;
     initContent = lib.mkMerge [
       (lib.mkOrder 550 ''
+      export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
       eval "$(${pkgs.sheldon}/bin/sheldon source)"
+      [[ -r "$HOME/.config/p10k/p10k.zsh" ]] && source "$HOME/.config/p10k/p10k.zsh"
 
       autoload -U compinit
 
-      if [[ -n "${ZDOTDIR:-}" ]]; then
-        zcompdump_path="$ZDOTDIR/.zcompdump"
-      else
-        zcompdump_path="$HOME/.zcompdump"
-      fi
+      zcompdump_dir="''${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+      mkdir -p "$zcompdump_dir"
+      zcompdump_path="$zcompdump_dir/.zcompdump"
 
       if [[ -f "$zcompdump_path" && -n "$zcompdump_path"(#qN.mh+24) ]]; then
         compinit -d "$zcompdump_path"
@@ -32,9 +34,12 @@ in
         compinit -C -d "$zcompdump_path"
       fi
 
-      cd "$HOME"
+      if [[ -o login && $SHLVL -eq 1 && "$PWD" == "/" ]]; then
+        cd "$HOME"
+      fi
       '')
       ''
+      _zsh_autosuggest_bind_widgets
       bindkey '^[[A' history-substring-search-up
       bindkey '^[[B' history-substring-search-down
       ''
@@ -42,4 +47,5 @@ in
   };
 
   xdg.configFile."sheldon/plugins.toml".source = sheldonPluginsToml;
+  xdg.configFile."p10k/p10k.zsh".source = ../zsh/p10k.zsh;
 }
