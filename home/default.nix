@@ -14,6 +14,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
+    KOTLIN_LSP_DIR = "${pkgs.kotlin-lsp}/share/kotlin-lsp";
   };
 
   programs.home-manager.enable = true;
@@ -34,5 +35,6 @@
     zoxide
     dust
     ghq
+    kotlin-lsp
   ];
 }
