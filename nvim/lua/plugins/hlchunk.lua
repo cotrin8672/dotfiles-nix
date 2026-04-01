@@ -22,8 +22,7 @@ return {
 
     local has_wisteria, wisteria = pcall(require, "wisteria.lib.base_color")
     local wst = has_wisteria and wisteria.wst or nil
-    local chunk_fg_1 = (wst and wst.gray) or hl_fg({ "IblScope", "NonText", "LineNr", "Comment" })
-    local chunk_fg_2 = (wst and wst.light_gray) or hl_fg({ "IblScope", "NonText", "LineNr", "Comment" })
+    local indent_fg = (wst and wst.gray) or hl_fg({ "IblScope", "LineNr", "Comment", "NonText" })
 
     ts.tsx = {
       "jsx_element",
@@ -45,18 +44,18 @@ return {
     require("hlchunk").setup({
       indent = {
         enable = true,
+        style = {
+          { fg = indent_fg },
+        },
         chars = {
           "│",
         },
       },
       chunk = {
-        enable = true,
+        enable = false,
         priority = 50,
         notify = true,
-        style = {
-          { fg = chunk_fg_1 },
-          { fg = chunk_fg_2 },
-        },
+        style = {},
         use_treesitter = true,
         chars = {
           horizontal_line = "─",
