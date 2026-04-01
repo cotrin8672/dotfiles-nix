@@ -3,6 +3,7 @@ local nix = require("nix_paths")
 return {
   name = "smear-cursor.nvim",
   dir = nix.smear_cursor,
+  enabled = false,
   event = "VeryLazy",
   opts = function()
     local cursor_color = "#9CBBC9"
