@@ -21,4 +21,15 @@ return function()
       vim.b[args.buf].miniindentscope_disable = true
     end,
   })
+
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniStarterOpened",
+    callback = function(args)
+      local buf = args.buf or vim.api.nvim_get_current_buf()
+      vim.b[buf].miniindentscope_disable = true
+      pcall(function()
+        require("mini.indentscope").undraw()
+      end)
+    end,
+  })
 end
