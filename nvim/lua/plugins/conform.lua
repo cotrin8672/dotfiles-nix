@@ -20,6 +20,12 @@ return {
       timeout_ms = 500,
       lsp_format = "fallback",
     },
+    formatters = {
+      ktfmt = {
+        stdin = false,
+        args = { "$FILENAME" },
+      },
+    },
   },
   config = function(_, opts)
     require("conform").setup(opts)
