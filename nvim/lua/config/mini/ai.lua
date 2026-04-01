@@ -5,7 +5,7 @@ return function()
     custom_textobjects = {
       B = gen_ai_spec.buffer(),
       D = gen_ai_spec.diagnostic(),
-      I = gen_ai_spec.indent(),
+      i = gen_ai_spec.indent(),
       L = gen_ai_spec.line(),
       n = gen_ai_spec.number(),
     },
