@@ -15,7 +15,10 @@ return {
 
     local colours = require("everforest.colours")
     local palette = colours.generate_palette(require("everforest").config, vim.o.background)
-    vim.api.nvim_set_hl(0, "LineNr", { fg = palette.bg1 })
-    vim.api.nvim_set_hl(0, "LspInlayHint", { fg = palette.bg1 })
+    vim.api.nvim_set_hl(0, "LineNr", { fg = palette.bg3 })
+    vim.api.nvim_set_hl(0, "LineNrAbove", { fg = palette.bg3 })
+    vim.api.nvim_set_hl(0, "LineNrBelow", { fg = palette.bg3 })
+    vim.api.nvim_set_hl(0, "CursorLineNr", { fg = palette.bg3 })
+    vim.api.nvim_set_hl(0, "LspInlayHint", { fg = palette.bg3 })
   end,
 }
