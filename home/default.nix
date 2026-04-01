@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./direnv.nix
     ./gwq.nix
     ./neovim.nix
     ./zsh.nix
