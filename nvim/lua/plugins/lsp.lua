@@ -64,10 +64,6 @@ return {
       capabilities = capabilities,
     })
 
-    vim.lsp.config("jdtls", {
-      capabilities = capabilities,
-    })
-
     vim.lsp.config("html", {
       capabilities = capabilities,
     })
@@ -97,7 +93,6 @@ return {
       "nixd",
       "bashls",
       "jsonls",
-      "jdtls",
       "html",
       "cssls",
       "ts_ls",
