@@ -5,7 +5,6 @@ let
     autosuggestions = "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions";
     fast_syntax_highlighting = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/plugins/fast-syntax-highlighting";
     history_substring_search = "${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search";
-    zsh_completions = "${pkgs.zsh-completions}/share/zsh/site-functions";
   };
 in
 
@@ -27,10 +26,13 @@ in
       mkdir -p "$zcompdump_dir"
       zcompdump_path="$zcompdump_dir/.zcompdump"
 
-      if [[ -f "$zcompdump_path" && -n "$zcompdump_path"(#qN.mh+24) ]]; then
-        compinit -d "$zcompdump_path"
-      else
+      if [[ ! -f "$zcompdump_path" ]]; then
         compinit -C -d "$zcompdump_path"
+      elif [[ "$zcompdump_path" -nt "/etc/profiles/per-user/$USER/share/zsh/site-functions" \
+           && "$zcompdump_path" -nt "/run/current-system/sw/share/zsh/site-functions" ]]; then
+        compinit -C -d "$zcompdump_path"
+      else
+        compinit -d "$zcompdump_path"
       fi
 
       '')

@@ -8,10 +8,6 @@ use = ["zsh-autosuggestions.zsh"]
 local = "@history_substring_search@"
 use = ["zsh-history-substring-search.zsh"]
 
-[plugins.zsh-completions]
-local = "@zsh_completions@"
-apply = ["fpath"]
-
 [plugins.fast-syntax-highlighting]
 local = "@fast_syntax_highlighting@"
 use = ["fast-syntax-highlighting.plugin.zsh"]
