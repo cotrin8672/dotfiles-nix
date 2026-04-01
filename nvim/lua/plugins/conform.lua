@@ -6,6 +6,8 @@ return {
   event = { "BufWritePre" },
   opts = {
     formatters_by_ft = {
+      java = { "google-java-format" },
+      kotlin = { "ktfmt" },
       lua = { "stylua" },
       nix = { "alejandra" },
       sh = { "shfmt" },

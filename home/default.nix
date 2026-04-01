@@ -37,6 +37,9 @@
     zoxide
     dust
     ghq
+    google-java-format
+    jdt-language-server
+    ktfmt
     kotlin-lsp
     sheldon
   ];
