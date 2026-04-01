@@ -22,5 +22,9 @@ return {
       dir = nix.nvim_web_devicons,
     },
   },
-  opts = {},
+  opts = {
+    lightbulb = {
+      enable = false,
+    },
+  },
 }
