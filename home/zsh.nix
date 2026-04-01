@@ -33,7 +33,6 @@ in
         compinit -C -d "$zcompdump_path"
       fi
 
-      cd "$HOME"
       '')
       ''
       _zsh_autosuggest_bind_widgets
