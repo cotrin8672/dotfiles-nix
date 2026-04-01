@@ -12,5 +12,10 @@ return {
       transparent_background_level = 2,
     })
     vim.cmd.colorscheme("everforest")
+
+    local colours = require("everforest.colours")
+    local palette = colours.generate_palette(require("everforest").config, vim.o.background)
+    vim.api.nvim_set_hl(0, "LineNr", { fg = palette.bg1 })
+    vim.api.nvim_set_hl(0, "LspInlayHint", { fg = palette.bg1 })
   end,
 }
