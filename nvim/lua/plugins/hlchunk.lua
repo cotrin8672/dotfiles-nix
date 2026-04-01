@@ -20,10 +20,6 @@ return {
       return nil
     end
 
-    local has_wisteria, wisteria = pcall(require, "wisteria.lib.base_color")
-    local wst = has_wisteria and wisteria.wst or nil
-    local indent_fg = (wst and wst.gray) or hl_fg({ "IblScope", "LineNr", "Comment", "NonText" })
-
     ts.tsx = {
       "jsx_element",
       "jsx_fragment",
@@ -43,10 +39,7 @@ return {
 
     require("hlchunk").setup({
       indent = {
-        enable = true,
-        style = {
-          { fg = indent_fg },
-        },
+        enable = false,
         chars = {
           "│",
         },
