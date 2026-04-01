@@ -39,7 +39,7 @@ return {
 
     require("hlchunk").setup({
       indent = {
-        enable = false,
+        enable = true,
         chars = {
           "│",
         },
