@@ -6,10 +6,22 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
+    local diagnostic_icons = require("shared.diagnostic_icons")
 
     pcall(function()
       capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
     end)
+
+    vim.diagnostic.config({
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = diagnostic_icons.error_icon,
+          [vim.diagnostic.severity.WARN] = diagnostic_icons.warn_icon,
+          [vim.diagnostic.severity.HINT] = diagnostic_icons.hint_icon,
+          [vim.diagnostic.severity.INFO] = diagnostic_icons.info_icon,
+        },
+      },
+    })
 
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
