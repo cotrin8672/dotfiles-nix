@@ -3,20 +3,46 @@ local nix = require("nix_paths")
 return {
   name = "smart-splits.nvim",
   dir = nix.smart_splits,
-  lazy = false,
   opts = {
     default_amount = 3,
     at_edge = "stop",
     wezterm_cli_path = "/mnt/c/Users/gummy/scoop/apps/wezterm-nightly/nightly-20260130/wezterm.exe",
   },
+  keys = {
+    {
+      "<C-h>",
+      function()
+        require("smart-splits").move_cursor_left()
+      end,
+      desc = "Move to left split",
+      silent = true,
+    },
+    {
+      "<C-j>",
+      function()
+        require("smart-splits").move_cursor_down()
+      end,
+      desc = "Move to lower split",
+      silent = true,
+    },
+    {
+      "<C-k>",
+      function()
+        require("smart-splits").move_cursor_up()
+      end,
+      desc = "Move to upper split",
+      silent = true,
+    },
+    {
+      "<C-l>",
+      function()
+        require("smart-splits").move_cursor_right()
+      end,
+      desc = "Move to right split",
+      silent = true,
+    },
+  },
   config = function(_, opts)
-    local smart_splits = require("smart-splits")
-
-    smart_splits.setup(opts)
-
-    vim.keymap.set("n", "<C-h>", smart_splits.move_cursor_left, { desc = "Move to left split", silent = true })
-    vim.keymap.set("n", "<C-j>", smart_splits.move_cursor_down, { desc = "Move to lower split", silent = true })
-    vim.keymap.set("n", "<C-k>", smart_splits.move_cursor_up, { desc = "Move to upper split", silent = true })
-    vim.keymap.set("n", "<C-l>", smart_splits.move_cursor_right, { desc = "Move to right split", silent = true })
+    require("smart-splits").setup(opts)
   end,
 }

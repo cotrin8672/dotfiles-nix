@@ -41,6 +41,5 @@
     jdt-language-server
     ktfmt
     kotlin-lsp
-    sheldon
   ];
 }
