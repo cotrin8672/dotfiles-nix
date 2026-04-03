@@ -2,6 +2,7 @@ return function()
   local pick = require("mini.pick")
   local extra = require("mini.extra")
   local float = require("shared.float")
+  local minipick_case_state = nil
 
   local function center_picker_window()
     local height = math.floor(vim.o.lines * 0.6)
@@ -207,7 +208,29 @@ return function()
         return
       end
 
+      if minipick_case_state == nil then
+        minipick_case_state = {
+          ignorecase = vim.o.ignorecase,
+          smartcase = vim.o.smartcase,
+        }
+      end
+
+      vim.o.ignorecase = true
+      vim.o.smartcase = false
       pcall(vim.api.nvim_set_option_value, "winblend", float.blend, { win = picker.windows.main })
+    end,
+  })
+
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniPickStop",
+    callback = function()
+      if minipick_case_state == nil then
+        return
+      end
+
+      vim.o.ignorecase = minipick_case_state.ignorecase
+      vim.o.smartcase = minipick_case_state.smartcase
+      minipick_case_state = nil
     end,
   })
 
