@@ -52,7 +52,6 @@ let
     nvim_web_devicons = pkgs.vimPlugins."nvim-web-devicons";
     rainbow_delimiters = pkgs.vimPlugins."rainbow-delimiters-nvim";
     satellite = pkgs.vimPlugins."satellite-nvim";
-    smear_cursor = pkgs.vimPlugins."smear-cursor-nvim";
     smart_splits = pkgs.vimPlugins."smart-splits-nvim";
     tiny_inline_diagnostic = pkgs.vimPlugins."tiny-inline-diagnostic-nvim";
     toggleterm = pkgs.vimPlugins."toggleterm-nvim";
@@ -140,7 +139,6 @@ let
       treesitter_parsers = map toString (plugins.treesitter.dependencies or []);
       rainbow_delimiters = "${plugins.rainbow_delimiters}";
       satellite = "${plugins.satellite}";
-      smear_cursor = "${plugins.smear_cursor}";
       smart_splits = "${plugins.smart_splits}";
       vim_edgemotion = "${pkgs.vimPlugins.vim-edgemotion}";
     }
@@ -215,7 +213,6 @@ in
     xdg.configFile."nvim/lua/plugins/treesitter-endwise.lua".source = ../nvim/lua/plugins/treesitter-endwise.lua;
     xdg.configFile."nvim/lua/plugins/rainbow-delimiters.lua".source = ../nvim/lua/plugins/rainbow-delimiters.lua;
     xdg.configFile."nvim/lua/plugins/satellite.lua".source = ../nvim/lua/plugins/satellite.lua;
-    xdg.configFile."nvim/lua/plugins/smear-cursor.lua".source = ../nvim/lua/plugins/smear-cursor.lua;
     xdg.configFile."nvim/lua/plugins/smart-splits.lua".source = ../nvim/lua/plugins/smart-splits.lua;
     xdg.configFile."nvim/lua/plugins/tiny-inline-diagnostic.lua".source = ../nvim/lua/plugins/tiny-inline-diagnostic.lua;
     xdg.configFile."nvim/lua/plugins/toggleterm.lua".source = ../nvim/lua/plugins/toggleterm.lua;
