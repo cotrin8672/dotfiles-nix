@@ -44,8 +44,7 @@ final: prev: {
       };
     };
 
-    nvim-treesitter = prev.vimUtils.buildVimPlugin {
-      pname = "nvim-treesitter";
+    nvim-treesitter = prev.vimPlugins.nvim-treesitter.overrideAttrs (_: {
       version = "0.10.0-unstable-2026-04-03";
       src = prev.fetchFromGitHub {
         owner = "nvim-treesitter";
@@ -53,7 +52,7 @@ final: prev: {
         rev = "4916d6592ede8c07973490d9322f187e07dfefac";
         hash = "sha256-PQR6tFt4lCrAZNQG7BLMD1IiCKja9wDS1S4laGJf/HE=";
       };
-    };
+    });
 
     wisteria-nvim = prev.vimUtils.buildVimPlugin {
       pname = "wisteria.nvim";
