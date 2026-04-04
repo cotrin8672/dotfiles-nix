@@ -21,6 +21,33 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+if vim.env.WSL_DISTRO_NAME then
+	vim.g.clipboard = {
+		name = "wsl-clip",
+		copy = {
+			["+"] = { "clip.exe" },
+			["*"] = { "clip.exe" },
+		},
+		paste = {
+			["+"] = {
+				"powershell.exe",
+				"-NoProfile",
+				"-NoLogo",
+				"-Command",
+				"[Console]::Out.Write((Get-Clipboard -Raw).Replace(\"`r\", \"\"))",
+			},
+			["*"] = {
+				"powershell.exe",
+				"-NoProfile",
+				"-NoLogo",
+				"-Command",
+				"[Console]::Out.Write((Get-Clipboard -Raw).Replace(\"`r\", \"\"))",
+			},
+		},
+		cache_enabled = 0,
+	}
+end
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
