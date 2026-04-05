@@ -70,7 +70,7 @@ return {
       blank = {
         enable = true,
         chars = {
-          "․",
+          "·",
         },
       },
     })
