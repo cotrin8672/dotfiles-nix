@@ -40,13 +40,14 @@ return {
     require("hlchunk").setup({
       indent = {
         enable = true,
+        priority = 1,
         chars = {
-          "│",
+          "▏",
         },
       },
       chunk = {
-        enable = false,
-        priority = 50,
+        enable = true,
+        priority = 100,
         notify = true,
         style = {},
         use_treesitter = true,
@@ -60,8 +61,8 @@ return {
         textobject = "",
         max_file_size = 1024 * 1024,
         error_sign = true,
-        duration = 200,
-        delay = 50,
+        duration = 0,
+        delay = 0,
       },
       line_num = {
         enable = false,
