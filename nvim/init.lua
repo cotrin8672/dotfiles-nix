@@ -109,6 +109,8 @@ vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained", "BufEnter" }, {
 	command = "checktime",
 })
 
+require("shared.java_kotlin_package").setup()
+
 local nix = require("nix_paths")
 
 vim.opt.rtp:prepend(nix.lazy_nvim)
