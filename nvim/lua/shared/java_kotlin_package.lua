@@ -35,7 +35,7 @@ function M.setup()
         ("package %s"):format(package_name),
         "",
       })
-      vim.api.nvim_win_set_cursor(0, { 3, 0 })
+      vim.api.nvim_win_set_cursor(0, { 2, 0 })
     end,
   })
 end
