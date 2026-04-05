@@ -27,6 +27,7 @@ return {
     require("config.mini.clue")()
     require("config.mini.cursorword")()
     require("config.mini.hipatterns")()
+    require("config.mini.indentscope")()
     require("config.mini.misc")()
     require("config.mini.move")()
     require("config.mini.operators")()
