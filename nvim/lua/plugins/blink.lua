@@ -14,6 +14,22 @@ return {
         nerd_font_variant = "mono",
       },
       completion = {
+        accept = {
+          auto_brackets = {
+            kind_resolution = {
+              blocked_filetypes = {
+                "java",
+                "kotlin",
+              },
+            },
+            semantic_token_resolution = {
+              blocked_filetypes = {
+                "java",
+                "kotlin",
+              },
+            },
+          },
+        },
         menu = {
           winblend = float.blend,
         },
