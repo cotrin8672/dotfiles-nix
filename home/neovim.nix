@@ -224,6 +224,7 @@ in
     xdg.configFile."nvim/lua/plugins/treesitter.lua".source = ../nvim/lua/plugins/treesitter.lua;
     xdg.configFile."nvim/lua/plugins/everforest.lua".source = ../nvim/lua/plugins/everforest.lua;
     xdg.configFile."nvim/lua/plugins/flash.lua".source = ../nvim/lua/plugins/flash.lua;
+    xdg.configFile."nvim/after/ftplugin/kotlin.lua".source = ../nvim/after/ftplugin/kotlin.lua;
 
     xdg.configFile."nvim/lua/shared/diagnostic_icons.lua".source = ../nvim/lua/shared/diagnostic_icons.lua;
     xdg.configFile."nvim/lua/shared/float.lua".source = ../nvim/lua/shared/float.lua;
