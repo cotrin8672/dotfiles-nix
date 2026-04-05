@@ -46,7 +46,7 @@ return {
         },
       },
       chunk = {
-        enable = true,
+        enable = false,
         priority = 100,
         notify = true,
         style = {},
@@ -68,7 +68,10 @@ return {
         enable = false,
       },
       blank = {
-        enable = false,
+        enable = true,
+        chars = {
+          "․",
+        },
       },
     })
   end,
