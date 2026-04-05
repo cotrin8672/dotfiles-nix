@@ -234,6 +234,7 @@ in
     xdg.configFile."nvim/lua/config/mini/clue.lua".source = ../nvim/lua/config/mini/clue.lua;
     xdg.configFile."nvim/lua/config/mini/cursorword.lua".source = ../nvim/lua/config/mini/cursorword.lua;
     xdg.configFile."nvim/lua/config/mini/hipatterns.lua".source = ../nvim/lua/config/mini/hipatterns.lua;
+    xdg.configFile."nvim/lua/config/mini/indentscope.lua".source = ../nvim/lua/config/mini/indentscope.lua;
     xdg.configFile."nvim/lua/config/mini/misc.lua".source = ../nvim/lua/config/mini/misc.lua;
     xdg.configFile."nvim/lua/config/mini/move.lua".source = ../nvim/lua/config/mini/move.lua;
     xdg.configFile."nvim/lua/config/mini/operators.lua".source = ../nvim/lua/config/mini/operators.lua;
