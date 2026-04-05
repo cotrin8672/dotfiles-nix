@@ -68,10 +68,7 @@ return {
         enable = false,
       },
       blank = {
-        enable = true,
-        chars = {
-          "·",
-        },
+        enable = false,
       },
     })
   end,
