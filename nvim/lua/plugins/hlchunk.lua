@@ -42,7 +42,7 @@ return {
         enable = true,
         priority = 1,
         chars = {
-          "▏",
+          "│",
         },
       },
       chunk = {
