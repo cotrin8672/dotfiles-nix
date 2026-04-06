@@ -23,8 +23,8 @@ return {
       desc = "Flash",
     },
     {
-      "r",
-      mode = "o",
+      "<leader>r",
+      mode = { "n", "x", "o" },
       function()
         require("flash").remote()
       end,
